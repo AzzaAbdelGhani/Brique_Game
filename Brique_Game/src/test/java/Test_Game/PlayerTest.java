@@ -10,14 +10,16 @@ public class PlayerTest {
 
     private Player p = new Player("test", Piece_Color.BLACK);
     @Test
-    public void checkNameAndColor() {
+    public void checkNameAndColorandActivity() {
         assertEquals(p.getName(),"test");
         assertEquals(p.getColor(), Piece_Color.BLACK);
+        assertFalse(p.IsActive());
     }
 
     @Test
     public void checkStatusOfPlayer() {
-        assertFalse(p.IsActive());
+        p.setActive(Boolean.TRUE);
+        assertTrue(p.IsActive());
 
     }
 }
