@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Graph {
 
-    private Piece_Color pieceColor;
-    private List<List<Integer>> Adjacency_List;
+    private final Piece_Color pieceColor;
+    public final List<List<Integer>> Adjacency_List;
 
     public Graph(Piece_Color pieceColor)
     {

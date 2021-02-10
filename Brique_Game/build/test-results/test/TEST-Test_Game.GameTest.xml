@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test_Game.GameTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-10T12:20:32" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.027">
+<testsuite name="Test_Game.GameTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-10T16:36:32" hostname="AZOZ" time="0.021">
   <properties/>
-  <testcase name="startingtheGame()" classname="Test_Game.GameTest" time="0.027"/>
+  <testcase name="startingtheGame()" classname="Test_Game.GameTest" time="0.021"/>
   <system-out><![CDATA[Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
 Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
 Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 

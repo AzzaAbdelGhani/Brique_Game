@@ -8,9 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
 
-    private Player p = new Player("test", Piece_Color.BLACK);
+    private final Player p = new Player("test", Piece_Color.BLACK);
     @Test
-    public void checkNameAndColorandActivity() {
+    public void checkNameAndColorAndActivity() {
         assertEquals(p.getName(),"test");
         assertEquals(p.getColor(), Piece_Color.BLACK);
         assertFalse(p.IsActive());
