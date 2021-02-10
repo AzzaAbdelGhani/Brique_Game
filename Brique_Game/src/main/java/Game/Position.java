@@ -31,4 +31,5 @@ public class Position {
     public void setPieceColor(Piece_Color pColor) {
         this.pColor = pColor;
     }
+
 }
