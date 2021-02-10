@@ -30,4 +30,14 @@ public class Board {
         return Boolean.TRUE;
     }
 
+    public void printBoard(){
+        for(int i = size-1; i >=0; i--){
+            for(int j = 0; j < size; j++){
+                Piece_Color color = this.grid[i][j].getPieceColor();
+                System.out.print(color.getString() + "\t");
+            }
+            System.out.println(" ");
+        }
+    }
+
 }
