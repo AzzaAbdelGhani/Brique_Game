@@ -32,4 +32,5 @@ public class BoardTest {
         assertTrue(board.isValidPos(size-1,0));
         assertTrue(board.isValidPos(size-1,size-1));
     }
+
 }
