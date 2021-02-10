@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test_Game.GameTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-10T12:20:32" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.027">
+  <properties/>
+  <testcase name="startingtheGame()" classname="Test_Game.GameTest" time="0.027"/>
+  <system-out><![CDATA[Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Please enter the coordinate values between 0 and 15
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
