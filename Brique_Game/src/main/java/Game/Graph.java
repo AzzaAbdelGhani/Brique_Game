@@ -1,7 +1,6 @@
 package Game;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Graph {
@@ -22,7 +21,7 @@ public class Graph {
         board.initializeBoard();
     }
 
-    public int get_Index(int row, int col) {return row*15 + col ;}
+    private int get_Index(int row, int col) {return row*15 + col ;}
 
     public void setEdge(int src , int des)
     {
@@ -62,7 +61,7 @@ public class Graph {
         check_neighbours(row, col,this.board);
     }
 
-    public ArrayList<List<Integer>> getBorders()
+    private ArrayList<List<Integer>> getBorders()
     {
         ArrayList<List<Integer>> borders = new ArrayList<List<Integer>>();
         for (int i = 0; i < 2; i++)
@@ -96,7 +95,7 @@ public class Graph {
         return borders;
     }
 
-    public void DFS(Integer e, ArrayList<Integer> visited)
+    private void DFS(Integer e, ArrayList<Integer> visited)
     {
         visited.add(e);
         for (Integer i : Adjacency_List.get(e))
@@ -138,28 +137,5 @@ public class Graph {
                 System.out.print("\n");
             }
         }
-    }
-
-    public static void main(String...arg)
-    {
-        Graph adjacencyList = new Graph(Piece_Color.BLACK);
-        adjacencyList.add_node(10, 7);
-        adjacencyList.add_node(8, 7);
-        adjacencyList.add_node(0, 7);
-        adjacencyList.add_node(6, 7);
-        adjacencyList.add_node(14, 7);
-        adjacencyList.add_node(1, 7);
-        adjacencyList.add_node(5, 7);
-        adjacencyList.add_node(2, 7);
-        adjacencyList.add_node(7, 7);
-        adjacencyList.add_node(3, 7);
-        adjacencyList.add_node(12, 7);
-        adjacencyList.add_node(4, 7);
-        adjacencyList.add_node(13, 7);
-        adjacencyList.add_node(9, 7);
-        adjacencyList.add_node(11, 7);
-
-        adjacencyList.printGraph();
-        System.out.println(adjacencyList.areBordersConnected());
     }
 }
