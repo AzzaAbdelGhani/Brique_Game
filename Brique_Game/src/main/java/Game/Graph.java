@@ -7,6 +7,7 @@ public class Graph {
 
     private final Piece_Color pieceColor;
     public final List<List<Integer>> Adjacency_List;
+    private Board board = new Board();
 
     public Graph(Piece_Color pieceColor)
     {
@@ -21,10 +22,41 @@ public class Graph {
 
     public int get_Index(int row, int col) {    return row*15 + col ;   }
 
+    public void setEdge(int src , int des)
+    {
+        Adjacency_List.get(des).add(src);
+        Adjacency_List.get(src).add(des);
+    }
+
+    public void check_neighbours(int row, int col, Board board)
+    {
+        if(board.isValidPos(row-1, col))
+        {
+            if ( this.pieceColor == board.getPosFill(row-1,col))
+                setEdge(get_Index(row,col), get_Index(row-1,col));
+        }
+        if(board.isValidPos(row+1, col))
+        {
+            if ( this.pieceColor == board.getPosFill(row+1,col))
+                setEdge(get_Index(row,col), get_Index(row+1,col));
+        }
+        if(board.isValidPos(row, col-1))
+        {
+            if ( this.pieceColor == board.getPosFill(row,col-1))
+                setEdge(get_Index(row,col), get_Index(row,col-1));
+        }
+        if(board.isValidPos(row, col+1))
+        {
+            if ( this.pieceColor == board.getPosFill(row,col+1))
+                setEdge(get_Index(row,col), get_Index(row,col+1));
+        }
+    }
+
     public void add_node(int row, int col)
     {
         int idx = get_Index(row, col);
         Adjacency_List.get(idx).add(idx);
+        check_neighbours(row, col,this.board);
     }
 
     public void printGraph()
