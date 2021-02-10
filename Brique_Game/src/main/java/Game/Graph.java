@@ -29,7 +29,7 @@ public class Graph {
         Adjacency_List.get(src).add(des);
     }
 
-    public void check_neighbours(int row, int col, Board board)
+    private void check_neighbours(int row, int col, Board board)
     {
         if(board.isValidPos(row-1, col))
         {
@@ -57,6 +57,7 @@ public class Graph {
     {
         int idx = get_Index(row, col);
         Adjacency_List.get(idx).add(idx);
+        this.board.fillPos(row,col,pieceColor);
         check_neighbours(row, col,this.board);
     }
 
