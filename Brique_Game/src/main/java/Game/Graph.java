@@ -1,12 +1,13 @@
 package Game;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Graph {
 
-    private final Piece_Color pieceColor;
     public final List<List<Integer>> Adjacency_List;
+    private final Piece_Color pieceColor;
     private Board board = new Board();
 
     public Graph(Piece_Color pieceColor)
@@ -21,7 +22,7 @@ public class Graph {
         board.initializeBoard();
     }
 
-    public int get_Index(int row, int col) {    return row*15 + col ;   }
+    public int get_Index(int row, int col) {return row*15 + col ;}
 
     public void setEdge(int src , int des)
     {
@@ -61,6 +62,70 @@ public class Graph {
         check_neighbours(row, col,this.board);
     }
 
+    public ArrayList<List<Integer>> getBorders()
+    {
+        ArrayList<List<Integer>> borders = new ArrayList<List<Integer>>();
+        for (int i = 0; i < 2; i++)
+        {
+            ArrayList<Integer> new_list = new ArrayList<>();
+            borders.add(i,new_list);
+        }
+        if (this.pieceColor == Piece_Color.BLACK)
+        {
+            ArrayList<Integer> up = new ArrayList<Integer>();
+            ArrayList<Integer> down = new ArrayList<Integer>();
+            for (int i = 0, j = 210; i < 15 && j < 225; i++, j++) {
+                up.add(i);
+                down.add(j);
+            }
+            borders.add(0,up);
+            borders.add(1,down);
+        }
+        else if (this.pieceColor == Piece_Color.WHITE)
+        {
+            ArrayList<Integer> right = new ArrayList<Integer>();
+            ArrayList<Integer> left = new ArrayList<Integer>();
+            for (int i = 0, j = 14; i < 211 && j < 225; i+=15, j+=15) {
+                left.add(i);
+                right.add(j);
+            }
+            borders.add(0,left);
+            borders.add(1,right);
+        }
+
+        return borders;
+    }
+
+    public void DFS(Integer e, ArrayList<Integer> visited)
+    {
+        visited.add(e);
+        for (Integer i : Adjacency_List.get(e))
+        {
+            if (!visited.contains(i))
+                DFS(i,visited);
+        }
+    }
+
+    public boolean areBordersConnected()
+    {
+        ArrayList<List<Integer>> borders = getBorders();
+        ArrayList<Integer> visited = new ArrayList<Integer>();
+        for(Integer e : borders.get(0))
+        {
+            if (Adjacency_List.get(e).contains(e))
+            {
+                DFS(e,visited);
+                if(!visited.isEmpty()){
+                    for (Integer v : visited)
+                    {
+                        if (borders.get(1).contains(v)) return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     public void printGraph()
     {
         System.out.println ("Adjacency List for the graph \n");
@@ -95,5 +160,6 @@ public class Graph {
         adjacencyList.add_node(11, 7);
 
         adjacencyList.printGraph();
+        System.out.println(adjacencyList.areBordersConnected());
     }
 }
