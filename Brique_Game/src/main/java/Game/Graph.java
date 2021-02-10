@@ -18,6 +18,7 @@ public class Graph {
             ArrayList<Integer> new_list = new ArrayList<>();
             Adjacency_List.add(i,new_list);
         }
+        board.initializeBoard();
     }
 
     public int get_Index(int row, int col) {    return row*15 + col ;   }
