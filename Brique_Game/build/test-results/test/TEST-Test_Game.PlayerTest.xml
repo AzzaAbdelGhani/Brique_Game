@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test_Game.PlayerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-08T10:08:43" hostname="AZOZ" time="0.074">
+<testsuite name="Test_Game.PlayerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-10T00:20:26" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.024">
   <properties/>
-  <testcase name="checkStatusOfPlayer()" classname="Test_Game.PlayerTest" time="0.041"/>
-  <testcase name="checkNameAndColor()" classname="Test_Game.PlayerTest" time="0.029"/>
+  <testcase name="checkStatusOfPlayer()" classname="Test_Game.PlayerTest" time="0.018"/>
+  <testcase name="checkNameAndColorandActivity()" classname="Test_Game.PlayerTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
