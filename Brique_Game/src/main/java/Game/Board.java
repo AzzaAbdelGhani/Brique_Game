@@ -27,4 +27,5 @@ public class Board {
     public Piece_Color getPosFill(int i, int j){
         return this.grid[i][j].getPieceColor();
     }
+
 }
