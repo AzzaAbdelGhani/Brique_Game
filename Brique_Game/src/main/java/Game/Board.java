@@ -8,10 +8,7 @@ public class Board {
         for(int i = 0; i < size; i++){
             for (int j = 0; j < size; j++){
                 this.grid[i][j] = new Position(i,j,Pos_Color.LIGHT);
-                this.grid[i][j].setPieceColor(Piece_Color.BLANK);
-                if((i+j)%2 != 0){
-                    this.grid[i][j].setPosColor(Pos_Color.DARK);
-                }
+                if((i+j)%2 != 0){ this.grid[i][j].setPosColor(Pos_Color.DARK); }
             }
         }
     }
@@ -27,4 +24,10 @@ public class Board {
     public Piece_Color getPosFill(int i, int j){
         return this.grid[i][j].getPieceColor();
     }
+
+    public boolean isValidPos(int i, int j) {
+        if (i < 0 || j < 0 || i >= this.size || j >= this.size) { return Boolean.FALSE; }
+        return Boolean.TRUE;
+    }
+
 }
