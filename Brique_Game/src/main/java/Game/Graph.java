@@ -21,6 +21,11 @@ public class Graph {
         board.initializeBoard();
     }
 
+    public void updateBoard(Board board, int row, int col){
+        this.board = board;
+        add_node(row, col);
+    }
+
     private int get_Index(int row, int col) {return row*15 + col ;}
 
     public void setEdge(int src , int des)
