@@ -34,20 +34,6 @@ public class Board {
         return Boolean.TRUE;
     }
 
-    public void fillEscorts(int i, int j){
-        Piece_Color current = getPosFill(i,j);
-        Pos_Color color = getPosColor(i,j);
-        if ( i != size-1 && j != size-1 ) {
-            if (current == getPosFill(i+1,j+1) && color == Pos_Color.LIGHT) { fillPos(i,j+1, current); }
-            if (current == getPosFill(i+1,j+1) && color == Pos_Color.DARK) { fillPos(i+1,j,current); }
-        }
-        if ( i != 0 && j != 0 ){
-            if (current == getPosFill(i-1,j-1) && color == Pos_Color.LIGHT) { fillPos(i-1,j,current); }
-            if (current == getPosFill(i-1,j-1) && color == Pos_Color.DARK){ fillPos(i,j-1,current);}
-        }
-        if (i == size-1 && color == Pos_Color.DARK) { fillPos(i,j+1,current); }
-    }
-
     public void printBoard(){
         for(int i = size-1; i >=0; i--){
             for(int j = 0; j < size; j++){
