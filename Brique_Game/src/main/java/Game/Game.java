@@ -20,15 +20,17 @@ public class Game {
 
     public Status getStatus() { return this.gStatus; }
 
-    public void setStatus(Status status){this.gStatus = status;}
+    public void setStatus(Status status) { this.gStatus = status; }
 
     public Player getActivePlayer() { if(P1.IsActive()) { return P1; } else { return P2; } }
+
     public Player getOtherPlayer() { if(P1.IsActive()) { return P2; } else { return P1; } }
+
     public Board getBoard(){return this.board;}
 
     public Status Play(){
         int move_counter = 0;
-        //Simulating a simple game
+
         while(this.gStatus == Status.ON){
             Move move = new Move();
             move.Move(this.board, getActivePlayer(), getOtherPlayer());
