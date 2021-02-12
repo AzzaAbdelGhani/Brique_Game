@@ -1,16 +1,38 @@
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-?Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-5Please enter the coordinate values between 0 and 15
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+4Please enter the coordinate values between 1 and 15
+
+P1's turn
+OEnter coordinates i: (1-15), j: (1-15):Invalid Coordinates, please enter again
+
+P2's turn
+OEnter coordinates i: (1-15), j: (1-15):Invalid Coordinates, please enter again
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+>Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+4Please enter the coordinate values between 1 and 15
