@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test_Game.BoardTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-02-12T13:33:33" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.008">
+<testsuite name="Test_Game.BoardTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-12T22:51:03" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.004">
   <properties/>
-  <testcase name="fillEscorts_edges()" classname="Test_Game.BoardTest" time="0.001"/>
   <testcase name="fillBoard()" classname="Test_Game.BoardTest" time="0.001"/>
-  <testcase name="fillEscorts_interior()" classname="Test_Game.BoardTest" time="0.001"/>
   <testcase name="isValidPosition()" classname="Test_Game.BoardTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
