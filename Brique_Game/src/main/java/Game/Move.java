@@ -2,9 +2,13 @@ package Game;
 import java.util.Scanner;
 
 public class Move {
-    Board board;
-    Player currentPlayer, otherPlayer;
-    int x, y, size;
+    private Board board;
+    private Player currentPlayer, otherPlayer;
+    private int x, y, size;
+
+    public int getX() { return this.x; }
+
+    public int getY() { return this.y; }
 
     public void Move(Board board, Player currentPlayer, Player otherPlayer){
         this.board = board;
@@ -18,13 +22,31 @@ public class Move {
         this.x = sc.nextInt() - 1;
     }
 
+    public void fillBoardandUpdateGraph(int a, int b, Piece_Color color) {
+        this.board.fillPos(a, b, color);
+        this.currentPlayer.updateGraph(this.board,a,b);
+    }
+
+    public void fillEscorts(int i, int j){
+        Piece_Color current = this.board.getPosFill(i,j);
+        Pos_Color color = this.board.getPosColor(i,j);
+        if ( i != size-1 && j != size-1 ) {
+            if (current == this.board.getPosFill(i+1,j+1) && color == Pos_Color.LIGHT) { fillBoardandUpdateGraph(i,j+1, current); }
+            if (current == this.board.getPosFill(i+1,j+1) && color == Pos_Color.DARK) { fillBoardandUpdateGraph(i+1, j, current); }
+        }
+        if ( i != 0 && j != 0 ){
+            if (current == this.board.getPosFill(i-1,j-1) && color == Pos_Color.LIGHT) { fillBoardandUpdateGraph(i-1, j, current); }
+            if (current == this.board.getPosFill(i-1,j-1) && color == Pos_Color.DARK){ fillBoardandUpdateGraph(i, j-1, current); }
+        }
+        if (i == size-1 && color == Pos_Color.DARK) { fillBoardandUpdateGraph(i, j+1, current); }
+    }
+
     public boolean makeMove(){
         if(this.board.isValidPos(this.x,this.y) && this.board.getPosFill(this.x ,this.y) == Piece_Color.BLANK){
-            this.board.fillPos(this.x, this.y, this.currentPlayer.getColor());
-            this.board.fillEscorts(this.x,this.y);
-            currentPlayer.updateGraph(this.board, this.x, this.y);
-            currentPlayer.setActive(Boolean.FALSE);
-            otherPlayer.setActive(Boolean.TRUE);
+            fillBoardandUpdateGraph(this.x, this.y, this.currentPlayer.getColor());
+            fillEscorts(this.x,this.y);
+            this.currentPlayer.setActive(Boolean.FALSE);
+            this.otherPlayer.setActive(Boolean.TRUE);
             return Boolean.TRUE;
         }
         else{
