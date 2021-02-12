@@ -33,28 +33,7 @@ public class BoardTest {
         assertTrue(board.isValidPos(size-1,size-1));
     }
 
-    @Test
-    public void fillEscorts_interior(){
-        board.initializeBoard();
-        //Tests for Light Positions
-        board.fillPos(5,5,Piece_Color.BLACK);
-        board.fillPos(4,4,Piece_Color.BLACK);
-        board.fillPos(6,6,Piece_Color.BLACK);
-        board.fillEscorts(5,5);
-        assertEquals(board.getPosFill(5,5), board.getPosFill(4, 5));
-        assertEquals(board.getPosFill(5,5), board.getPosFill(5, 6));
-
-        //Test for dark positions
-        board.fillPos(1,2,Piece_Color.WHITE);
-        board.fillPos(2,3,Piece_Color.WHITE);
-        board.fillPos(3,4,Piece_Color.WHITE);
-        board.fillEscorts(2,3);
-        assertEquals(board.getPosFill(2,3), board.getPosFill(3,3));
-        assertEquals(board.getPosFill(2,3),board.getPosFill(2,2));
-
-    }
-
-    @Test
+    /*@Test
     public void fillEscorts_edges(){
         board.initializeBoard();
         //Bottom Edge Light Color Positions
@@ -105,6 +84,6 @@ public class BoardTest {
         board.fillPos(9,13,Piece_Color.WHITE);
         board.fillEscorts(10,14);
         assertEquals(board.getPosFill(10,14),board.getPosFill(9,14));
-    }
+    }*/
 
 }
