@@ -6,6 +6,6 @@ public enum Piece_Color {
     BLANK ("Bln");
 
     private String pColor;
-    Piece_Color(String s){ pColor = s;}
-    public String getString() {return pColor;}
+    Piece_Color(String s){ this.pColor = s;}
+    public String getString() {return this.pColor;}
 }

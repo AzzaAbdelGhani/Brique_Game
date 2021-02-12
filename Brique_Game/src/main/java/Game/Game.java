@@ -20,6 +20,6 @@ public class Game {
     }
 
     public Status getStatus() { return this.gStatus; }
-
+    public void setStatus(Status status){this.gStatus = status;}
     public Player getActivePlayer() { if(P1.IsActive()) { return P1; } else { return P2; } }
 }
