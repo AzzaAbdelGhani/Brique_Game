@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test_Game.GameTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-10T21:51:00" hostname="AZOZ" time="0.016">
+<testsuite name="Test_Game.GameTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-12T12:47:08" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.059">
   <properties/>
-  <testcase name="startingtheGame()" classname="Test_Game.GameTest" time="0.016"/>
+  <testcase name="fillBoard()" classname="Test_Game.GameTest" time="0.05"/>
+  <testcase name="startingtheGame()" classname="Test_Game.GameTest" time="0.008"/>
   <system-out><![CDATA[Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
 Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
 Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
@@ -17,7 +18,27 @@ Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln
 Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
 Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
 Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
-Please enter the coordinate values between 0 and 15
+Please enter the coordinate values between 1 and 15
+P1's turn
+Enter coordinates i: (1-15), j: (1-15):Invalid Coordinates, please enter again
+P2's turn
+Enter coordinates i: (1-15), j: (1-15):Invalid Coordinates, please enter again
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
+Please enter the coordinate values between 1 and 15
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
