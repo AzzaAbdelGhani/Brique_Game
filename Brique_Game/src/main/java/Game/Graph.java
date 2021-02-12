@@ -126,7 +126,6 @@ public class Graph {
                 }
             }
         }
-        printGraph();
         return false;
     }
 
@@ -142,22 +141,5 @@ public class Graph {
                 System.out.print("\n");
             }
         }
-    }
-
-    public static void main(String...arg)
-    {
-        Graph graph = new Graph(Piece_Color.BLACK);
-        Board board = new Board();
-        board.initializeBoard();
-        board.fillPos(1, 1, Piece_Color.BLACK);
-        board.fillEscorts(1, 1);
-        graph.updateBoard(board, 1, 1);
-        graph.printGraph();
-        board.fillPos(2, 2, Piece_Color.BLACK);
-        board.fillEscorts(2, 2);
-        graph.updateBoard(board, 2,2 );
-
-        graph.printGraph();
-
     }
 }
