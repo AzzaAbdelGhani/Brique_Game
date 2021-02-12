@@ -21,30 +21,17 @@ public class LaunchGame {
 
         Game game = new Game();
         game.startGame(P1, P2);
+        Display.printBoard(game.getBoard());
 
-        int move_counter = 0;
 
-        while(game.getStatus() == Status.ON){
+        //here the player with BLACK makes his first move then White player's turn comes
 
-            //here the player with BLACK makes his first move then White player's turn comes
-
-            System.out.println("Would you like to use Pie Rule ? yes/No");
-            if (in.next() == "yes")
-            {
-                Settings s2 = new Settings();
-                s2.applyPieRule(P1,P2);
-                //and swap the turn
-            }
-
-            move_counter++;
-
-            if(move_counter > 28){
-                if (P1.checkPath()) game.setStatus(Status.P1_WINS);
-                if (P2.checkPath()) game.setStatus(Status.P2_WINS);
-                if(move_counter > 225)  game.setStatus(Status.OVER);
-            }
-
-            System.out.println(game.getStatus());
+        System.out.println("Would you like to use Pie Rule ? yes/No");
+        if (in.next() == "yes")
+        {
+            Settings s2 = new Settings();
+            s2.applyPieRule(P1,P2);
+            //and swap the turn
         }
 
 
