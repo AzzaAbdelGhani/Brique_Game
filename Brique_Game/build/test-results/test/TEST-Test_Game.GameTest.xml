@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test_Game.GameTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-12T13:11:08" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.052">
+<testsuite name="Test_Game.GameTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-12T13:33:33" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.051">
   <properties/>
-  <testcase name="fillBoard()" classname="Test_Game.GameTest" time="0.045"/>
-  <testcase name="startingtheGame()" classname="Test_Game.GameTest" time="0.006"/>
+  <testcase name="fillBoard()" classname="Test_Game.GameTest" time="0.043"/>
+  <testcase name="startingtheGame()" classname="Test_Game.GameTest" time="0.007"/>
   <system-out><![CDATA[Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
 Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 
 Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	Bln	 

@@ -19,43 +19,28 @@ public class Game {
     }
 
     public Status getStatus() { return this.gStatus; }
+
     public void setStatus(Status status){this.gStatus = status;}
+
     public Player getActivePlayer() { if(P1.IsActive()) { return P1; } else { return P2; } }
 
     public Player getOtherPlayer() { if(P1.IsActive()) { return P2; } else { return P1; } }
 
-    public Piece_Color scanCoordinatesandFill(String playerName, Piece_Color color) {
-        System.out.println(playerName + "'s turn");
-        System.out.print("Enter coordinates i: (1-" + board.getSize() + "), j: (1-" + board.getSize() + "):");
-        Scanner sc = new Scanner(System.in);
-        int x, y;
-        y = sc.nextInt() - 1;
-        x = sc.nextInt() - 1;
-        while (!this.board.isValidPos(x,y) || this.board.getPosFill(x,y) != Piece_Color.BLANK) {
-            System.out.println("Invalid Coordinates, please enter again");
-            y = sc.nextInt() - 1;
-            x = sc.nextInt() - 1;
-        }
-        this.board.fillPos(x,y,color);
-        return this.board.getPosFill(x,y);
-    }
-
     public Status Play(){
-        Player currentPlayer, otherPlayer;
         int move_counter = 0;
         //Simulating a simple game
         while(this.gStatus == Status.ON){
-            currentPlayer = getActivePlayer();
-            otherPlayer = getOtherPlayer();
-            scanCoordinatesandFill(currentPlayer.getName(), currentPlayer.getColor());
-            currentPlayer.setActive(false);
-            otherPlayer.setActive(true);
+            Move move = new Move();
+            move.Move(this.board, getActivePlayer(), getOtherPlayer());
+            while(!move.makeMove()) { move.Move(this.board, getActivePlayer(), getOtherPlayer()); }
             this.board.printBoard();
             move_counter++;
-            //Creating a force exit
-            if(move_counter > 2) { this.gStatus = Status.OVER; }
+            //check victory
+            if (move_counter > 28){
+                if (P1.checkPath()) { this.gStatus = Status.P1_WINS; }
+                if (P2.checkPath()) { this.gStatus = Status.P2_WINS; }
+            }
         }
-
         return this.gStatus;
     }
 

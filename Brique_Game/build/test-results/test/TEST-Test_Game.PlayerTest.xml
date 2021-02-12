@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test_Game.PlayerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-12T13:11:08" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.017">
+<testsuite name="Test_Game.PlayerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-12T13:33:33" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.018">
   <properties/>
   <testcase name="checkNameAndColorAndActivity()" classname="Test_Game.PlayerTest" time="0.014"/>
   <testcase name="checkStatusOfPlayer()" classname="Test_Game.PlayerTest" time="0.002"/>

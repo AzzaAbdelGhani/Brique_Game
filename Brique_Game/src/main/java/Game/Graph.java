@@ -18,7 +18,6 @@ public class Graph {
             ArrayList<Integer> new_list = new ArrayList<>();
             Adjacency_List.add(i,new_list);
         }
-        board.initializeBoard();
     }
 
     public void updateBoard(Board board, int row, int col){
@@ -30,30 +29,31 @@ public class Graph {
 
     public void setEdge(int src , int des)
     {
+        if (Adjacency_List.get(des).isEmpty()) { Adjacency_List.get(des).add(des); }
         Adjacency_List.get(des).add(src);
         Adjacency_List.get(src).add(des);
     }
 
-    private void check_neighbours(int row, int col, Board board)
+    private void check_neighbours(int row, int col)
     {
-        if(board.isValidPos(row-1, col))
+        if(this.board.isValidPos(row-1, col))
         {
-            if ( this.pieceColor == board.getPosFill(row-1,col))
+            if ( this.pieceColor == this.board.getPosFill(row-1,col))
                 setEdge(get_Index(row,col), get_Index(row-1,col));
         }
-        if(board.isValidPos(row+1, col))
+        if(this.board.isValidPos(row+1, col))
         {
-            if ( this.pieceColor == board.getPosFill(row+1,col))
+            if ( this.pieceColor == this.board.getPosFill(row+1,col))
                 setEdge(get_Index(row,col), get_Index(row+1,col));
         }
-        if(board.isValidPos(row, col-1))
+        if(this.board.isValidPos(row, col-1))
         {
-            if ( this.pieceColor == board.getPosFill(row,col-1))
+            if ( this.pieceColor == this.board.getPosFill(row,col-1))
                 setEdge(get_Index(row,col), get_Index(row,col-1));
         }
-        if(board.isValidPos(row, col+1))
+        if(this.board.isValidPos(row, col+1))
         {
-            if ( this.pieceColor == board.getPosFill(row,col+1))
+            if ( this.pieceColor == this.board.getPosFill(row,col+1))
                 setEdge(get_Index(row,col), get_Index(row,col+1));
         }
     }
@@ -62,8 +62,7 @@ public class Graph {
     {
         int idx = get_Index(row, col);
         Adjacency_List.get(idx).add(idx);
-        this.board.fillPos(row,col,pieceColor);
-        check_neighbours(row, col,this.board);
+        check_neighbours(row, col);
     }
 
     private ArrayList<List<Integer>> getBorders()
@@ -127,6 +126,7 @@ public class Graph {
                 }
             }
         }
+        printGraph();
         return false;
     }
 
@@ -142,5 +142,22 @@ public class Graph {
                 System.out.print("\n");
             }
         }
+    }
+
+    public static void main(String...arg)
+    {
+        Graph graph = new Graph(Piece_Color.BLACK);
+        Board board = new Board();
+        board.initializeBoard();
+        board.fillPos(1, 1, Piece_Color.BLACK);
+        board.fillEscorts(1, 1);
+        graph.updateBoard(board, 1, 1);
+        graph.printGraph();
+        board.fillPos(2, 2, Piece_Color.BLACK);
+        board.fillEscorts(2, 2);
+        graph.updateBoard(board, 2,2 );
+
+        graph.printGraph();
+
     }
 }
