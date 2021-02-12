@@ -81,6 +81,30 @@ public class BoardTest {
         board.fillEscorts(14,7);
         assertEquals(board.getPosFill(14,7),board.getPosFill(14,6));
         assertEquals(board.getPosFill(14,7),board.getPosFill(14,8));
+
+        //Left Edge Dark Color Positions
+        board.fillPos(1,0,Piece_Color.BLACK);
+        board.fillPos(2,1,Piece_Color.BLACK);
+        board.fillEscorts(1,0);
+        assertEquals(board.getPosFill(1,0),board.getPosFill(2,0));
+
+        //Left Edge Light Color Positions
+        board.fillPos(6,0,Piece_Color.BLACK);
+        board.fillPos(7,1,Piece_Color.BLACK);
+        board.fillEscorts(6,0);
+        assertEquals(board.getPosFill(6,0),board.getPosFill(6,1));
+
+        //Right Edge Dark Color Positions
+        board.fillPos(7,14,Piece_Color.WHITE);
+        board.fillPos(6, 13, Piece_Color.WHITE);
+        board.fillEscorts(7,14);
+        assertEquals(board.getPosFill(7,14),board.getPosFill(7, 13));
+
+        //Right Edge Light Color Positions
+        board.fillPos(10,14,Piece_Color.WHITE);
+        board.fillPos(9,13,Piece_Color.WHITE);
+        board.fillEscorts(10,14);
+        assertEquals(board.getPosFill(10,14),board.getPosFill(9,14));
     }
 
 }

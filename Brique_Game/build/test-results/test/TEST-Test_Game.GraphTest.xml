@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test_Game.GraphTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-02-12T13:11:08" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.005">
+<testsuite name="Test_Game.GraphTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-02-12T13:33:33" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.007">
   <properties/>
-  <testcase name="checkConnectionBetweenBorders()" classname="Test_Game.GraphTest" time="0.001"/>
+  <testcase name="checkConnectionBetweenBorders()" classname="Test_Game.GraphTest" time="0.002"/>
   <testcase name="isAddingNodeProperly()" classname="Test_Game.GraphTest" time="0.001"/>
-  <testcase name="checkEdgesBetweenNodes()" classname="Test_Game.GraphTest" time="0.0"/>
+  <testcase name="checkEdgesBetweenNodes()" classname="Test_Game.GraphTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -51,7 +51,7 @@ public class Board {
     public void printBoard(){
         for(int i = size-1; i >=0; i--){
             for(int j = 0; j < size; j++){
-                Piece_Color color = this.grid[i][j].getPieceColor();
+                Piece_Color color = getPosFill(i,j);
                 System.out.print(color.getString() + "\t");
             }
             System.out.println(" ");

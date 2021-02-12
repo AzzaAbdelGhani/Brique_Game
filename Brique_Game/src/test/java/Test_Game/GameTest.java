@@ -25,12 +25,6 @@ public class GameTest {
 
         @Test
         public void fillBoard(){
-            game.startGame(P1,P2);
-            InputStream backup = System.in;
-            System.setIn(new ByteArrayInputStream("-1 2 3 4".getBytes()));
-            assertEquals(P1.getColor(),game.scanCoordinatesandFill(P1.getName(),P1.getColor()));
-            System.setIn(new ByteArrayInputStream("3 4 5 6".getBytes()));
-            assertEquals(P2.getColor(),game.scanCoordinatesandFill(P2.getName(),P2.getColor()));
-            System.setIn(backup);
+
         }
 }
