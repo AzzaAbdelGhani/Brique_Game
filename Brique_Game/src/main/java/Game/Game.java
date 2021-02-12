@@ -16,9 +16,6 @@ public class Game {
         //Black plays first
         if(P1.getColor() == Piece_Color.BLACK) { P1.setActive(true); }
         else { P2.setActive(true); }
-
-        this.board.printBoard();
-        System.out.println("Please enter the coordinate values between 1 and " + board.getSize());
     }
 
     public Status getStatus() { return this.gStatus; }
