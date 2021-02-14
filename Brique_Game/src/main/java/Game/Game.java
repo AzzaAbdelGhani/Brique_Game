@@ -27,31 +27,4 @@ public class Game {
     public Player getOtherPlayer() { if(P1.IsActive()) { return P2; } else { return P1; } }
 
     public Board getBoard(){return this.board;}
-
-    public Status Play(){
-        int move_counter = 0;
-
-        while(this.gStatus == Status.ON){
-            Move move = new Move();
-            move.Move(this.board, getActivePlayer(), getOtherPlayer());
-            while(!move.makeMove()) { move.Move(this.board, getActivePlayer(), getOtherPlayer()); }
-            this.board.printBoard();
-            move_counter++;
-            //check victory
-            if (move_counter > 28){
-                if (P1.checkPath()) { this.gStatus = Status.P1_WINS; }
-                if (P2.checkPath()) { this.gStatus = Status.P2_WINS; }
-            }
-        }
-        return this.gStatus;
-    }
-
-    public static void main(String[] args) {
-        Player P1 = new Player("P1", Piece_Color.BLACK);
-        Player P2 = new Player("P2", Piece_Color.WHITE);
-        Game game = new Game();
-        game.startGame(P1, P2);
-        Status stat = game.Play();
-        System.out.println(stat.getString());
-    }
 }

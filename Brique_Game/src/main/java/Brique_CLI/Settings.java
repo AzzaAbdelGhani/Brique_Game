@@ -14,7 +14,6 @@ public class Settings {
         System.out.println("Please Enter the first player's name : ");
         String name1 = scanner.next();
         System.out.println("Please Enter the first player's color, BLACK or WHITE : ");
-        //we need to check if he inserts a correct color or not
         String color = scanner.next();
         while (!color.equals("BLACK") && !color.equals("WHITE")) {
             System.out.println("This color is invalid, please enter BLACK or WHITE : ");

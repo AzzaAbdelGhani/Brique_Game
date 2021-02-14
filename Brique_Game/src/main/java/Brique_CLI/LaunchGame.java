@@ -15,6 +15,10 @@ public class LaunchGame {
         System.out.println("Default settings are : P1 has White color and P2 has Black color ");
         System.out.println("would you like to change the default settings ? yes/No");
         String input1 = scanner.next();
+        while (!input1.equals("yes") && !input1.equals("no")) {
+            System.out.println("Please enter yes or no : ");
+            input1 = scanner.next();
+        }
         if (input1.equals("yes"))
         {
             s.changeSettings(P1,P2);
