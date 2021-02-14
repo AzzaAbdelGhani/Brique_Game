@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test_Game.GameTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-02-12T22:51:03" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.021">
+<testsuite name="Test_Game.GameTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-02-12T23:14:26" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.007">
   <properties/>
-  <testcase name="activePlayers()" classname="Test_Game.GameTest" time="0.014"/>
+  <testcase name="activePlayers()" classname="Test_Game.GameTest" time="0.002"/>
   <testcase name="playingtheGame()" classname="Test_Game.GameTest" time="0.001"/>
-  <testcase name="startingtheGame()" classname="Test_Game.GameTest" time="0.002"/>
+  <testcase name="startingtheGame()" classname="Test_Game.GameTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
