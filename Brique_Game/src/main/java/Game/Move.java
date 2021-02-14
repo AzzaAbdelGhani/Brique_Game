@@ -17,7 +17,8 @@ public class Move {
         this.otherPlayer = otherPlayer;
         System.out.print("Enter the coordinates:");
         Scanner sc = new Scanner(System.in);
-        this.y = sc.nextInt() - 1;
+        char a = sc.next().charAt(0);
+        this.y = (int) a - 97;
         this.x = sc.nextInt() - 1;
     }
 
