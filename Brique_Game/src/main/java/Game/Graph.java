@@ -6,7 +6,7 @@ import java.util.List;
 public class Graph {
 
     public final List<List<Integer>> Adjacency_List;
-    private final Piece_Color pieceColor;
+    private Piece_Color pieceColor;
     private Board board = new Board();
 
     public Graph(Piece_Color pieceColor)

@@ -1,5 +1,6 @@
 package Brique_CLI;
 import Game.*;
+import com.sun.source.tree.WhileLoopTree;
 
 import java.util.Scanner;
 
@@ -8,18 +9,22 @@ public class Settings {
 
     public void changeSettings(Player p1, Player p2)
     {
-        Scanner in = new Scanner(System.in);
-        String name1, name2 ;
+        Scanner scanner = new Scanner(System.in);
         Piece_Color color1, color2;
         System.out.println("Please Enter the first player's name : ");
-        name1 = in.next();
-        System.out.println("Please Enter the first player's color, B or W : ");
+        String name1 = scanner.next();
+        System.out.println("Please Enter the first player's color, BLACK or WHITE : ");
         //we need to check if he inserts a correct color or not
-        color1 = Piece_Color.valueOf(in.next());
+        String color = scanner.next();
+        while (!color.equals("BLACK") && !color.equals("WHITE")) {
+            System.out.println("This color is invalid, please enter BLACK or WHITE : ");
+            color = scanner.next();
+        }
+        color1 = Piece_Color.valueOf(color);
         if(color1 == Piece_Color.BLACK) color2 = Piece_Color.WHITE;
         else color2 = Piece_Color.BLACK;
         System.out.println("Please Enter the second player's name : ");
-        name2 = in.next();
+        String name2 = scanner.next();
 
         p1.setName(name1);
         p1.setPieceColor(color1);

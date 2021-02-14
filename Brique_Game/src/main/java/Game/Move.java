@@ -15,7 +15,6 @@ public class Move {
         this.size = this.board.getSize();
         this.currentPlayer = currentPlayer;
         this.otherPlayer = otherPlayer;
-        System.out.println(currentPlayer.getName() + "'s turn");
         System.out.print("Enter the coordinates:");
         Scanner sc = new Scanner(System.in);
         this.y = sc.nextInt() - 1;
