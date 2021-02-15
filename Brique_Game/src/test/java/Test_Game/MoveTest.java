@@ -20,18 +20,18 @@ public class MoveTest {
     public void initiateMove(){
         board.initializeBoard();
         InputStream backup = System.in;
-        System.setIn(new ByteArrayInputStream("2 4".getBytes()));
+        System.setIn(new ByteArrayInputStream("b 4".getBytes()));
         move.Move(board, P1, P2);
         assertEquals(move.getX()+1, 4);
         assertEquals(move.getY()+1, 2);
-
+        System.setIn(backup);
     }
 
     @Test
     public void areEscortsFilled(){
         board.initializeBoard();
         InputStream backup = System.in;
-        System.setIn(new ByteArrayInputStream("2 4".getBytes()));
+        System.setIn(new ByteArrayInputStream("b 4".getBytes()));
         move.Move(board, P1, P2);
 
         //Tests for Light Interior Positions
@@ -55,15 +55,15 @@ public class MoveTest {
     public void makingaValidMove(){
         board.initializeBoard();
         InputStream backup = System.in;
-        System.setIn(new ByteArrayInputStream("0 4".getBytes()));
+        System.setIn(new ByteArrayInputStream("t 4".getBytes()));
         move.Move(board, P1, P2);
         assertFalse(move.makeMove());
 
-        System.setIn(new ByteArrayInputStream("6 16".getBytes()));
+        System.setIn(new ByteArrayInputStream("a 16".getBytes()));
         move.Move(board, P1, P2);
         assertFalse(move.makeMove());
 
-        System.setIn(new ByteArrayInputStream("5 4".getBytes()));
+        System.setIn(new ByteArrayInputStream("h 4".getBytes()));
         move.Move(board, P1, P2);
         assertTrue(move.makeMove());
         System.setIn(backup);
