@@ -15,10 +15,13 @@ public class Settings {
         String name1 = scanner.next();
         System.out.println("Please Enter the first player's color, BLACK or WHITE : ");
         String color = scanner.next();
-        while (!color.equals("BLACK") && !color.equals("WHITE")) {
+        color = color.toUpperCase();
+        while (!color.equals("BLACK") && !color.equals("WHITE") && !color.equals("B") && !color.equals("W") ) {
             System.out.println("This color is invalid, please enter BLACK or WHITE : ");
             color = scanner.next();
         }
+        if (color.equals("B")) color = "BLACK";
+        if (color.equals("W")) color = "WHITE";
         color1 = Piece_Color.valueOf(color);
         if(color1 == Piece_Color.BLACK) color2 = Piece_Color.WHITE;
         else color2 = Piece_Color.BLACK;

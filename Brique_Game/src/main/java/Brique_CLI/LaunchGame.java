@@ -15,11 +15,12 @@ public class LaunchGame {
         System.out.println("Default settings are : P1 has White color and P2 has Black color ");
         System.out.println("would you like to change the default settings ? yes/No");
         String input1 = scanner.next();
-        while (!input1.equals("yes") && !input1.equals("no")) {
+        input1 = input1.toLowerCase();
+        while (!input1.equals("yes") && !input1.equals("no") && !input1.equals("y") && !input1.equals("n")) {
             System.out.println("Please enter yes or no : ");
             input1 = scanner.next();
         }
-        if (input1.equals("yes"))
+        if (input1.equals("yes") || input1.equals("y"))
         {
             s.changeSettings(P1,P2);
         }
@@ -37,11 +38,12 @@ public class LaunchGame {
             {
                 System.out.println("Would you like to use Pie Rule ? yes/no");
                 String input2 = scanner.next();
-                while (!input2.equals("yes") && !input2.equals("no")) {
+                input2 = input2.toLowerCase();
+                while (!input2.equals("yes") && !input2.equals("no") && !input2.equals("n") && !input2.equals("y")) {
                     System.out.println("Please enter yes or no : ");
                     input2 = scanner.next();
                 }
-                if (input2.equals("yes"))
+                if (input2.equals("yes") || input2.equals("y"))
                 {
                     s.applyPieRule(P1,P2);
                     game.getActivePlayer().setActive(false);
