@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test_Game.MoveTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-02-12T23:14:26" hostname="cjkeerthana-HP-Pavilion-Laptop-15-cs2xxx" time="0.041">
+<testsuite name="Test_Game.MoveTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-02-15T12:06:18" hostname="LAPTOP-OTAF57Q4" time="0.03">
   <properties/>
-  <testcase name="initiateMove()" classname="Test_Game.MoveTest" time="0.025"/>
-  <testcase name="areEscortsFilled()" classname="Test_Game.MoveTest" time="0.004"/>
-  <testcase name="makingaValidMove()" classname="Test_Game.MoveTest" time="0.008"/>
-  <system-out><![CDATA[p1's turn
-Enter the coordinates:p1's turn
-Enter the coordinates:p1's turn
+  <testcase name="initiateMove()" classname="Test_Game.MoveTest" time="0.018"/>
+  <testcase name="areEscortsFilled()" classname="Test_Game.MoveTest" time="0.003"/>
+  <testcase name="makingaValidMove()" classname="Test_Game.MoveTest" time="0.005"/>
+  <system-out><![CDATA[Enter the coordinates:Enter the coordinates:Enter the coordinates:Invalid Coordinates, please enter again: 
 Enter the coordinates:Invalid Coordinates, please enter again: 
-p1's turn
-Enter the coordinates:Invalid Coordinates, please enter again: 
-p1's turn
 Enter the coordinates:]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
