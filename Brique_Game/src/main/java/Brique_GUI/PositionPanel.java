@@ -10,7 +10,7 @@ public class PositionPanel extends  JPanel{
     private int row;
     private int col;
     private Piece_Color pColor = Piece_Color.BLANK;
-    private Pos_Color posColor;
+    //private Pos_Color posColor;
 
     public PositionPanel(int row, int col)
     {
@@ -27,8 +27,24 @@ public class PositionPanel extends  JPanel{
         super.paintComponent(g);
         g.setColor((row + col) % 2 == 0 ? new java.awt.Color(204, 204, 204) : new java.awt.Color(153, 153,153));
         g.fillRect(0, 0, 48, 48);
-        g.setColor(java.awt.Color.BLACK);
         g.drawRect(0, 0, 48, 48);
 
+        if (pColor == Piece_Color.BLACK)
+        {
+            drawPiece(32,32,g,Color.BLACK);
+        }
+        else if (pColor == Piece_Color.WHITE)
+        {
+            drawPiece(32,32,g,Color.WHITE);
+        }
+
+    }
+
+    public void drawPiece(int i, int j, Graphics g, Color pieceColor)
+    {
+        g.setColor(pieceColor);
+        g.fillOval(i,j,32,32);
+        g.setColor(Color.BLACK);
+        g.drawOval(i,j,32,32);
     }
 }

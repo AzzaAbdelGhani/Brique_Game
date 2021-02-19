@@ -1,5 +1,8 @@
 package Brique_GUI;
 
+import Game.Piece_Color;
+import Game.Player;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +12,8 @@ public class WelcomeFrame extends JFrame implements ActionListener {
 
     private JButton startgame;
     private JFrame main = new JFrame("Brique Game");
+    Player P1 = new Player("P1", Piece_Color.BLACK);
+    Player P2 = new Player("P2", Piece_Color.WHITE);
 
     public WelcomeFrame()
     {
@@ -24,7 +29,7 @@ public class WelcomeFrame extends JFrame implements ActionListener {
         if(e.getSource() == startgame)
         {
             main.setVisible(false);
-            new BoardFrame();
+            new BoardFrame(P1,P2);
         }
     }
 
