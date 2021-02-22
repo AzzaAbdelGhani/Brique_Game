@@ -23,6 +23,7 @@ public class BoardFrame extends JFrame implements MouseListener {
         this.P1 = P1;
         this.P2 = P2;
         game.startGame(P1, P2);
+        System.out.println(game.getActivePlayer().getName() + "'s turn");
         this.board = new JFrame("Board");
         this.board.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.board.setBackground(Color.BLACK);
@@ -46,19 +47,35 @@ public class BoardFrame extends JFrame implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        //if (move_counter == 1) {//apply pie rule}
+        if (move_counter == 1) {
+            //apply pie rule
+            game.getActivePlayer().setActive(false);
+            game.getOtherPlayer().setActive(true);
+            System.out.println("Pie Rule Applied"); //Make changes for the pie rule
+            System.out.println(game.getActivePlayer().getName() + "'s turn"); //Pie rule not applied correctly
+        }
         Move move = new Move();
         Object source = e.getSource();
         PositionPanel temp = (PositionPanel) source;
         int x = temp.getRow();
         int y = temp.getCol();
-        System.out.println(x + " " + y);
+        //System.out.println(x + " " + y);
         move.Move_GUI(game.getBoard(), game.getActivePlayer(), game.getOtherPlayer(), x, y);
         if(move.makeMove()) {
             move_counter++;
-            temp.setPiece(game.getActivePlayer().getColor());
+            temp.setPiece(game.getOtherPlayer().getColor());
             GUI_escorts(x,y);
+            System.out.println(game.getActivePlayer().getName() + "'s turn");
         }
+        if(move_counter > 28){
+            if(P1.checkPath()) { game.setStatus(Status.P1_WINS); }
+            if(P2.checkPath()) { game.setStatus(Status.P2_WINS);}
+        }
+        if(game.getStatus() != Status.ON) {
+            System.out.println(game.getStatus().getString());
+            board.setVisible(false);
+        }
+
     }
 
     @Override

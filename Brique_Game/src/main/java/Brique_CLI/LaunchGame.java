@@ -60,7 +60,6 @@ public class LaunchGame {
             if(move_counter > 28){
                 if (P1.checkPath()) game.setStatus(Status.P1_WINS);
                 if (P2.checkPath()) game.setStatus(Status.P2_WINS);
-                if(move_counter > 225)  game.setStatus(Status.OVER);
             }
 
             System.out.println(game.getStatus());
