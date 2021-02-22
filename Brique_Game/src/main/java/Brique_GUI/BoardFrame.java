@@ -1,8 +1,6 @@
 package Brique_GUI;
 
-import Game.Game;
-import Game.Piece_Color;
-import Game.Player;
+import Game.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,9 +15,11 @@ public class BoardFrame extends JFrame implements MouseListener {
     private static int boardResolution = 720;
     private static final int boardSize = 15;
     private PositionPanel[][] grid = new PositionPanel[boardSize][boardSize];
+    private Game game;
+    private int move_counter = 0;
     public BoardFrame(Player P1, Player P2)
     {
-        Game game = new Game();
+        game = new Game();
         this.P1 = P1;
         this.P2 = P2;
         game.startGame(P1, P2);
@@ -45,10 +45,9 @@ public class BoardFrame extends JFrame implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        //if (move_counter == 1) {//apply pie rule}
         Object source = e.getSource();
         PositionPanel temp = (PositionPanel) source;
-        temp.setPiece(Piece_Color.BLACK);
-        temp.repaint();
     }
 
     @Override

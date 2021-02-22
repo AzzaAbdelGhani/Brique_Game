@@ -50,8 +50,12 @@ public class PositionPanel extends  JPanel {
         g.drawOval(i,j,panelResolution/2,panelResolution/2);
     }
 
-    public void setPiece(Piece_Color pColor) { this.pColor = pColor; }
+    public void setPiece(Piece_Color pColor) {
+        this.pColor = pColor;
+        repaint();
+    }
 
-    public int getPanelResolution() { return panelResolution;}
+    public int getRow() { return this.row;}
+    public int getCol() { return this.col;}
 
 }

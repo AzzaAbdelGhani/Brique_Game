@@ -22,6 +22,14 @@ public class Move {
         this.x = sc.nextInt() - 1;
     }
 
+    public void Move_GUI(Board board, Player currentPlayer, Player otherPlayer, int x, int y){
+        this.board = board;
+        this.currentPlayer = currentPlayer;
+        this.otherPlayer = otherPlayer;
+        this.x = x;
+        this.y = y;
+    }
+
     public void fillBoardandUpdateGraph(int a, int b, Piece_Color color) {
         this.board.fillPos(a, b, color);
         this.currentPlayer.updateGraph(this.board,a,b);
