@@ -13,6 +13,7 @@ public class PositionPanel extends  JPanel {
     private int col;
     private Piece_Color pColor = Piece_Color.BLANK;
     private static int panelResolution = 48;
+    private Pos_Color pos_color = Pos_Color.LIGHT;
 
     public PositionPanel(int row, int col)
     {
@@ -30,7 +31,7 @@ public class PositionPanel extends  JPanel {
         g.setColor((row + col) % 2 == 0 ? new java.awt.Color(204, 204, 204) : new java.awt.Color(153, 153,153));
         g.fillRect(0, 0, panelResolution, panelResolution);
         g.drawRect(0, 0, panelResolution, panelResolution);
-
+        if((row + col)%2 != 0) { this.pos_color = Pos_Color.DARK; }
         if (pColor == Piece_Color.BLACK)
         {
             drawPiece(panelResolution/4,panelResolution/4,g,Color.BLACK);
@@ -50,11 +51,12 @@ public class PositionPanel extends  JPanel {
         g.drawOval(i,j,panelResolution/2,panelResolution/2);
     }
 
+    public Piece_Color getPiece() { return this.pColor; }
     public void setPiece(Piece_Color pColor) {
         this.pColor = pColor;
         repaint();
     }
-
+    public Pos_Color getColor() { return this.pos_color; }
     public int getRow() { return this.row;}
     public int getCol() { return this.col;}
 

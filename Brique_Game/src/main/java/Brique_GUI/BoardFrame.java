@@ -35,9 +35,10 @@ public class BoardFrame extends JFrame implements MouseListener {
             {
                 this.grid[r][c] = new PositionPanel(r, c);
                 this.grid[r][c].addMouseListener(this);
-                this.board.add(this.grid[r][c]);
             }
         }
+
+        for (int r = boardSize-1; r >= 0; r--) { for(int c = 0; c < boardSize; c++){ this.board.add(this.grid[r][c]); } }
 
         //this.board.addMouseListener(this);
         board.setVisible(true);
@@ -46,8 +47,18 @@ public class BoardFrame extends JFrame implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         //if (move_counter == 1) {//apply pie rule}
+        Move move = new Move();
         Object source = e.getSource();
         PositionPanel temp = (PositionPanel) source;
+        int x = temp.getRow();
+        int y = temp.getCol();
+        System.out.println(x + " " + y);
+        move.Move_GUI(game.getBoard(), game.getActivePlayer(), game.getOtherPlayer(), x, y);
+        if(move.makeMove()) {
+            move_counter++;
+            temp.setPiece(game.getActivePlayer().getColor());
+            GUI_escorts(x,y);
+        }
     }
 
     @Override
@@ -68,5 +79,19 @@ public class BoardFrame extends JFrame implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+
+    public void GUI_escorts(int i, int j){
+        Piece_Color current = this.grid[i][j].getPiece();
+        Pos_Color color = this.grid[i][j].getColor();
+        if ( i != boardSize-1 && j != boardSize-1 ) {
+            if (current == this.grid[i+1][j+1].getPiece() && color == Pos_Color.LIGHT) { this.grid[i][j+1].setPiece(current); }
+            if (current == this.grid[i+1][j+1].getPiece() && color == Pos_Color.DARK) { this.grid[i+1][j].setPiece(current); }
+        }
+        if ( i != 0 && j != 0 ){
+            if (current == this.grid[i-1][j-1].getPiece() && color == Pos_Color.LIGHT) { this.grid[i-1][j].setPiece(current); }
+            if (current == this.grid[i-1][j-1].getPiece() && color == Pos_Color.DARK){ this.grid[i][j-1].setPiece(current); }
+        }
+        if (i == boardSize-1 && color == Pos_Color.DARK && j != boardSize-1) { this.grid[i][j+1].setPiece(current); }
     }
 }
