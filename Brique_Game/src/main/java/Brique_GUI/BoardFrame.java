@@ -21,7 +21,7 @@ public class BoardFrame extends JFrame implements MouseListener {
         this.P2 = P2;
         game.startGame(P1, P2);
         this.board = new JFrame("Board");
-        this.board.setSize(600,600);
+        //this.board.setSize(600,600);
         this.board.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.board.setSize(new Dimension(720,720));
         this.board.setBackground(Color.BLACK);
@@ -42,7 +42,7 @@ public class BoardFrame extends JFrame implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("Hello");
+        //System.out.println("Hello");
 
     }
 
