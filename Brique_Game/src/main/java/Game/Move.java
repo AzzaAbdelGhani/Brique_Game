@@ -22,6 +22,15 @@ public class Move {
         this.x = sc.nextInt() - 1;
     }
 
+    public void Move_GUI(Board board, Player currentPlayer, Player otherPlayer, int x, int y){
+        this.board = board;
+        this.currentPlayer = currentPlayer;
+        this.otherPlayer = otherPlayer;
+        this.x = x;
+        this.y = y;
+        this.size = this.board.getSize();
+    }
+
     public void fillBoardandUpdateGraph(int a, int b, Piece_Color color) {
         this.board.fillPos(a, b, color);
         this.currentPlayer.updateGraph(this.board,a,b);
@@ -38,7 +47,7 @@ public class Move {
             if (current == this.board.getPosFill(i-1,j-1) && color == Pos_Color.LIGHT) { fillBoardandUpdateGraph(i-1, j, current); }
             if (current == this.board.getPosFill(i-1,j-1) && color == Pos_Color.DARK){ fillBoardandUpdateGraph(i, j-1, current); }
         }
-        if (i == size-1 && color == Pos_Color.DARK) { fillBoardandUpdateGraph(i, j+1, current); }
+        if (i == size-1 && color == Pos_Color.DARK && j != size-1) { fillBoardandUpdateGraph(i, j+1, current); }
     }
 
     public boolean makeMove(){
