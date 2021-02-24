@@ -25,10 +25,6 @@ public class BoardFrame extends JFrame implements MouseListener {
         game.startGame(P1, P2);
         System.out.println(game.getActivePlayer().getName() + "'s turn");
         this.board = new JFrame("Board");
-<<<<<<< HEAD
-        //this.board.setSize(600,600);
-=======
->>>>>>> 01676510e7600ce11d5855839aa2627d150ab424
         this.board.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.board.setBackground(Color.BLACK);
         this.board.setLayout(new GridLayout(boardSize, boardSize, 0, 0));
@@ -51,17 +47,9 @@ public class BoardFrame extends JFrame implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-<<<<<<< HEAD
-        //System.out.println("Hello");
-=======
-        if (move_counter == 1) {
-            //apply pie rule
-            game.getActivePlayer().setActive(false);
-            game.getOtherPlayer().setActive(true);
-            System.out.println("Pie Rule Applied"); //Make changes for the pie rule
-            System.out.println(game.getActivePlayer().getName() + "'s turn"); //Pie rule not applied correctly
-        }
+
         Move move = new Move();
+        Boolean checkPie = ((move_counter == 0) ? true : false);
         Object source = e.getSource();
         PositionPanel temp = (PositionPanel) source;
         int x = temp.getRow();
@@ -74,15 +62,35 @@ public class BoardFrame extends JFrame implements MouseListener {
             GUI_escorts(x,y);
             System.out.println(game.getActivePlayer().getName() + "'s turn");
         }
+        if (checkPie) {
+            if (GUI_settings.applyPieRule(P1, P2))
+            {
+                game.getActivePlayer().setActive(false);
+                game.getOtherPlayer().setActive(true);
+                System.out.println("Pie Rule Applied"); //Make changes for the pie rule
+                System.out.println(game.getActivePlayer().getName() + "'s turn"); //Pie rule not applied correctly
+            }
+        }
         if(move_counter > 28){
-            if(P1.checkPath()) { game.setStatus(Status.P1_WINS); }
-            if(P2.checkPath()) { game.setStatus(Status.P2_WINS);}
+            if(P1.checkPath())
+            {
+                JOptionPane.showMessageDialog(this,
+                        "Congrats "+P1.getName()+" WINS !");
+                game.setStatus(Status.P1_WINS);
+                WelcomeFrame g = new WelcomeFrame();
+            }
+            if(P2.checkPath())
+            {
+                JOptionPane.showMessageDialog(this,
+                        "Congrats "+P2.getName()+" WINS !");
+                game.setStatus(Status.P2_WINS);
+                WelcomeFrame g = new WelcomeFrame();
+            }
         }
         if(game.getStatus() != Status.ON) {
             System.out.println(game.getStatus().getString());
             board.setVisible(false);
         }
->>>>>>> 01676510e7600ce11d5855839aa2627d150ab424
 
     }
 
