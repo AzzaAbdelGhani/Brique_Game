@@ -14,11 +14,9 @@ public class WelcomeFrame extends JFrame implements ActionListener {
     private JButton changeSettings;
     private JLabel welcomeMessage;
     private JLabel defaultSettingsMessage;
-    private JLabel space;
-    //private JFrame main = new JFrame("Brique Game");
-    //private JFrame main;
     Player P1 = new Player("P1", Piece_Color.BLACK);
     Player P2 = new Player("P2", Piece_Color.WHITE);
+    private GUI_settings changeDialog = new GUI_settings(this,"Change Settings");
 
     public WelcomeFrame()
     {
@@ -62,24 +60,26 @@ public class WelcomeFrame extends JFrame implements ActionListener {
         pack();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        /*
 
-        //main.setSize(720,720);
-        main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.startGame = new JButton("Start Game");
-        startGame.addActionListener(this);
-        main.add(startGame, BorderLayout.CENTER);
-        main.setVisible(true);
-        setContentPane(main);
-
-         */
     }
     public void actionPerformed(ActionEvent e)
     {
         if(e.getSource() == startGame)
         {
             setVisible(false);
-            new BoardFrame(P1,P2);
+            new BoardFrame(this,P1,P2);
+        }
+        if (e.getSource() == changeSettings)
+        {
+            if(!changeDialog.isVisible()) changeDialog.setVisible(true);
+            changeDialog.addChangeListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    P1.setName(changeDialog.getP1Name());
+                    P2.setName(changeDialog.getP2Name());
+                    changeDialog.setVisible(false);
+                }
+            });
         }
 
     }

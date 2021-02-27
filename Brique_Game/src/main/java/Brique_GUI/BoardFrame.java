@@ -17,7 +17,7 @@ public class BoardFrame extends JFrame implements MouseListener {
     private PositionPanel[][] grid = new PositionPanel[boardSize][boardSize];
     private Game game;
     private int move_counter = 0;
-    public BoardFrame(Player P1, Player P2)
+    public BoardFrame(JFrame frame, Player P1, Player P2)
     {
         game = new Game();
         this.P1 = P1;
@@ -41,7 +41,7 @@ public class BoardFrame extends JFrame implements MouseListener {
 
         for (int r = boardSize-1; r >= 0; r--) { for(int c = 0; c < boardSize; c++){ this.board.add(this.grid[r][c]); } }
 
-        //this.board.addMouseListener(this);
+        setLocationRelativeTo(frame);
         board.setVisible(true);
     }
 
@@ -89,6 +89,7 @@ public class BoardFrame extends JFrame implements MouseListener {
             System.out.println(game.getStatus().getString());
             board.setVisible(false);
             WelcomeFrame g = new WelcomeFrame();
+            g.setVisible(true);
         }
 
     }
