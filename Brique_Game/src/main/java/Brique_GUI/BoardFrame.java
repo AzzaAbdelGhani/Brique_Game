@@ -77,19 +77,18 @@ public class BoardFrame extends JFrame implements MouseListener {
                 JOptionPane.showMessageDialog(this,
                         "Congrats "+P1.getName()+" WINS !");
                 game.setStatus(Status.P1_WINS);
-                WelcomeFrame g = new WelcomeFrame();
             }
             if(P2.checkPath())
             {
                 JOptionPane.showMessageDialog(this,
                         "Congrats "+P2.getName()+" WINS !");
                 game.setStatus(Status.P2_WINS);
-                WelcomeFrame g = new WelcomeFrame();
             }
         }
         if(game.getStatus() != Status.ON) {
             System.out.println(game.getStatus().getString());
             board.setVisible(false);
+            WelcomeFrame g = new WelcomeFrame();
         }
 
     }

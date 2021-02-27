@@ -5,6 +5,9 @@ import Game.Piece_Color;
 import Game.Player;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GUI_settings {
 
@@ -23,4 +26,6 @@ public class GUI_settings {
         }
         return false;
     }
+
+
 }
