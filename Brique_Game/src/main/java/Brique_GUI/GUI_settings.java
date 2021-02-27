@@ -57,41 +57,4 @@ public class GUI_settings extends JDialog {
         }
         return false;
     }
-
-    public static void changeSettings(Player p1, Player p2)
-    {
-        JFrame changeSettingsFrame = new JFrame("Change Settings");
-        JTextField p1Name;
-        JTextField p2Name;
-
-        JPanel newSettings = new JPanel(new GridLayout(2,2,10,2));
-        newSettings.setBorder(BorderFactory.createTitledBorder("New Settings: "));
-
-        newSettings.add(new JLabel("Player1 Name: "));
-        p1Name = new JTextField(10);
-        newSettings.add(p1Name);
-        p1Name.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String p1NewName = p1Name.getText();
-                p1.setName(p1NewName);
-            }
-        });
-        newSettings.add(new JLabel("Player2 Name: "));
-        p2Name = new JTextField(10);
-        newSettings.add(p2Name);
-        p2Name.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String p2NewName = p2Name.getText();
-                p2.setName(p2NewName);
-            }
-        });
-
-        changeSettingsFrame.add(newSettings);
-        //changeSettingsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        changeSettingsFrame.setSize(300,300);
-        changeSettingsFrame.setVisible(true);
-    }
-
 }

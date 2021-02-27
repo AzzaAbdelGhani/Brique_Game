@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 public class BoardFrame extends JFrame implements MouseListener {
 
-    private JFrame board;
     private Player P1,P2;
     private static int boardResolution = 720;
     private static final int boardSize = 15;
@@ -24,12 +23,11 @@ public class BoardFrame extends JFrame implements MouseListener {
         this.P2 = P2;
         game.startGame(P1, P2);
         System.out.println(game.getActivePlayer().getName() + "'s turn");
-        this.board = new JFrame("Board");
-        this.board.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.board.setBackground(Color.BLACK);
-        this.board.setLayout(new GridLayout(boardSize, boardSize, 0, 0));
-        this.board.setSize(new Dimension(boardResolution,boardResolution));
-        this.board.setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBackground(Color.BLACK);
+        setLayout(new GridLayout(boardSize, boardSize, 0, 0));
+        setSize(new Dimension(boardResolution,boardResolution));
+        setResizable(false);
         for (int r = 0; r < boardSize ; r++)
         {
             for (int c = 0; c < boardSize; c++)
@@ -39,10 +37,10 @@ public class BoardFrame extends JFrame implements MouseListener {
             }
         }
 
-        for (int r = boardSize-1; r >= 0; r--) { for(int c = 0; c < boardSize; c++){ this.board.add(this.grid[r][c]); } }
+        for (int r = boardSize-1; r >= 0; r--) { for(int c = 0; c < boardSize; c++){ add(this.grid[r][c]); } }
 
         setLocationRelativeTo(frame);
-        board.setVisible(true);
+        setVisible(true);
     }
 
     @Override
@@ -87,7 +85,7 @@ public class BoardFrame extends JFrame implements MouseListener {
         }
         if(game.getStatus() != Status.ON) {
             System.out.println(game.getStatus().getString());
-            board.setVisible(false);
+            setVisible(false);
             WelcomeFrame g = new WelcomeFrame();
             g.setVisible(true);
         }
