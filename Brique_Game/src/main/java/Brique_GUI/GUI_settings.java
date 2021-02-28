@@ -17,9 +17,13 @@ public class GUI_settings extends JDialog {
     public GUI_settings (JFrame frame, String title)
     {
         super(frame, title, false);
-        JPanel panel = new JPanel(new GridLayout(3,2,5,5));
+        JPanel panel = new JPanel(new GridLayout(5,2,5,5));
+        panel.add(new JLabel("Player1 plays with BLACK : "));
+        panel.add(new JLabel(" "));
         panel.add(new JLabel("Player1 Name: "));
         panel.add(P1Name);
+        panel.add(new JLabel("Player2 plays with WHITE : "));
+        panel.add(new JLabel(" "));
         panel.add(new JLabel("Player2 Name: "));
         panel.add(P2Name);
         panel.add(changeButton);
