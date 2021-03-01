@@ -22,22 +22,20 @@ public class BoardFrame extends JFrame implements MouseListener {
     public BoardFrame(JFrame frame, Player P1, Player P2)
     {
         super("Brique Game");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.P1 = P1;
+        this.P2 = P2;
+        game.startGame(P1, P2);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
-        this.setSize(725,730);
+        this.setSize(730,740);
         msg = new JLabel(P1.getName() + "'s turn");
         this.add(msg, BorderLayout.NORTH);
         board = new JPanel(new GridLayout(boardSize, boardSize, 0, 0));
         board.setBorder(BorderFactory.createMatteBorder(5,0,5,0,Color.BLACK));
-        //board.setBorder(BorderFactory.createMatteBorder(0,5,0,5,Color.WHITE));
+        board.setBackground(Color.WHITE);
         board.setSize(new Dimension(boardResolution,boardResolution));
-        setResizable(false);
-        setLocationRelativeTo(frame);
-
-        this.P1 = P1;
-        this.P2 = P2;
-        game.startGame(P1, P2);
-        System.out.println(game.getActivePlayer().getName() + "'s turn");
+        this.setResizable(false);
+        this.setLocationRelativeTo(frame);
 
         for (int r = 0; r < boardSize ; r++)
         {
@@ -51,7 +49,7 @@ public class BoardFrame extends JFrame implements MouseListener {
         for (int r = boardSize-1; r >= 0; r--) { for(int c = 0; c < boardSize; c++){ board.add(this.grid[r][c]); } }
 
         this.add(board, BorderLayout.CENTER);
-        setVisible(true);
+        this.setVisible(true);
     }
 
     @Override
