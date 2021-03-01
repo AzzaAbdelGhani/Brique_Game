@@ -14,20 +14,31 @@ public class BoardFrame extends JFrame implements MouseListener {
     private static int boardResolution = 720;
     private static final int boardSize = 15;
     private PositionPanel[][] grid = new PositionPanel[boardSize][boardSize];
-    private Game game;
+    private Game game = new Game();
     private int move_counter = 0;
+    private JLabel msg;
+    private JPanel board;
+
     public BoardFrame(JFrame frame, Player P1, Player P2)
     {
-        game = new Game();
+        super("Brique Game");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new BorderLayout());
+        this.setSize(725,730);
+        msg = new JLabel(P1.getName() + "'s turn");
+        this.add(msg, BorderLayout.NORTH);
+        board = new JPanel(new GridLayout(boardSize, boardSize, 0, 0));
+        board.setBorder(BorderFactory.createMatteBorder(5,0,5,0,Color.BLACK));
+        //board.setBorder(BorderFactory.createMatteBorder(0,5,0,5,Color.WHITE));
+        board.setSize(new Dimension(boardResolution,boardResolution));
+        setResizable(false);
+        setLocationRelativeTo(frame);
+
         this.P1 = P1;
         this.P2 = P2;
         game.startGame(P1, P2);
         System.out.println(game.getActivePlayer().getName() + "'s turn");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBackground(Color.BLACK);
-        setLayout(new GridLayout(boardSize, boardSize, 0, 0));
-        setSize(new Dimension(boardResolution,boardResolution));
-        setResizable(false);
+
         for (int r = 0; r < boardSize ; r++)
         {
             for (int c = 0; c < boardSize; c++)
@@ -37,9 +48,9 @@ public class BoardFrame extends JFrame implements MouseListener {
             }
         }
 
-        for (int r = boardSize-1; r >= 0; r--) { for(int c = 0; c < boardSize; c++){ add(this.grid[r][c]); } }
+        for (int r = boardSize-1; r >= 0; r--) { for(int c = 0; c < boardSize; c++){ board.add(this.grid[r][c]); } }
 
-        setLocationRelativeTo(frame);
+        this.add(board, BorderLayout.CENTER);
         setVisible(true);
     }
 
@@ -52,21 +63,20 @@ public class BoardFrame extends JFrame implements MouseListener {
         PositionPanel temp = (PositionPanel) source;
         int x = temp.getRow();
         int y = temp.getCol();
-        //System.out.println(x + " " + y);
         move.Move_GUI(game.getBoard(), game.getActivePlayer(), game.getOtherPlayer(), x, y);
         if(move.makeMove()) {
             move_counter++;
             temp.setPiece(game.getOtherPlayer().getColor());
             GUI_escorts(x,y);
-            System.out.println(game.getActivePlayer().getName() + "'s turn");
+            msg.setText(game.getActivePlayer().getName() + "'s turn");
         }
         if (checkPie) {
             if (GUI_settings.applyPieRule(P1, P2))
             {
                 game.getActivePlayer().setActive(false);
                 game.getOtherPlayer().setActive(true);
-                System.out.println("Pie Rule Applied"); //Make changes for the pie rule
-                System.out.println(game.getActivePlayer().getName() + "'s turn"); //Pie rule not applied correctly
+                msg.setText("Pie Rule Applied");
+                msg.setText(game.getActivePlayer().getName() + "'s turn");
             }
         }
         if(move_counter > 28){
