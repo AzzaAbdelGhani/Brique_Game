@@ -6,7 +6,6 @@ import Game.Player;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GUI_settings extends JDialog {
@@ -32,6 +31,7 @@ public class GUI_settings extends JDialog {
         pack();
         setLocationRelativeTo(frame);
     }
+
     public String getP1Name()
     {
         return P1Name.getText();

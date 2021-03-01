@@ -3,10 +3,14 @@ package Brique_GUI;
 import Game.Piece_Color;
 import Game.Player;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class WelcomeFrame extends JFrame implements ActionListener {
 
@@ -14,15 +18,14 @@ public class WelcomeFrame extends JFrame implements ActionListener {
     private JButton changeSettings;
     private JLabel welcomeMessage;
     private JLabel defaultSettingsMessage;
-    Player P1 = new Player("P1", Piece_Color.BLACK);
-    Player P2 = new Player("P2", Piece_Color.WHITE);
+    private Player P1 = new Player("P1", Piece_Color.BLACK);
+    private Player P2 = new Player("P2", Piece_Color.WHITE);
     private GUI_settings changeDialog = new GUI_settings(this,"Change Settings");
 
-    public WelcomeFrame()
-    {
+    public WelcomeFrame() throws IOException {
         setResizable(false);
         setLayout(new BorderLayout());
-        JLabel background = new JLabel((new ImageIcon("C:/Users/user/Desktop/DSSC program/Second year/First Semester/Software_Development/Brique_Game/Brique_Game/src/images/bg.jpg")));
+        JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File("bg.jpg"))));
         background.setLayout(new FlowLayout(FlowLayout.CENTER, 1,180));
         add(background,BorderLayout.CENTER);
 

@@ -6,11 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
 
 public class BoardFrame extends JFrame implements MouseListener {
 
-    private Player P1,P2;
+    private final Player P1,P2;
     private static int boardResolution = 720;
     private static final int boardSize = 15;
     private PositionPanel[][] grid = new PositionPanel[boardSize][boardSize];
@@ -56,7 +55,7 @@ public class BoardFrame extends JFrame implements MouseListener {
     public void mouseClicked(MouseEvent e) {
 
         Move move = new Move();
-        Boolean checkPie = ((move_counter == 0) ? true : false);
+        Boolean checkPie = (move_counter == 0);
         Object source = e.getSource();
         PositionPanel temp = (PositionPanel) source;
         int x = temp.getRow();
@@ -68,7 +67,7 @@ public class BoardFrame extends JFrame implements MouseListener {
             GUI_escorts(x,y);
             msg.setText(game.getActivePlayer().getName() + "'s turn");
         }
-        if (checkPie) {
+        if(checkPie) {
             if (GUI_settings.applyPieRule(P1, P2))
             {
                 game.getActivePlayer().setActive(false);
@@ -94,8 +93,17 @@ public class BoardFrame extends JFrame implements MouseListener {
         if(game.getStatus() != Status.ON) {
             System.out.println(game.getStatus().getString());
             setVisible(false);
-            WelcomeFrame g = new WelcomeFrame();
-            g.setVisible(true);
+            EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    try {
+                        WelcomeFrame g = new WelcomeFrame();
+                        g.setVisible(true);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            });
         }
 
     }
