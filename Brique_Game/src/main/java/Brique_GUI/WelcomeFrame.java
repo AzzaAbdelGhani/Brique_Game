@@ -8,21 +8,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 public class WelcomeFrame extends JFrame implements ActionListener {
 
-    private JButton startGame;
-    private JButton changeSettings;
-    private JLabel welcomeMessage;
-    private JLabel defaultSettingsMessage;
+    private JButton startGame = new JButton("Start Game");;
+    private JButton changeSettings = new JButton("Change Settings");;
+    private JLabel welcomeMessage = new JLabel("Welcome To Brique Game :) ");
+    private JLabel defaultSettingsMessage = new JLabel("Default Settings : P1 (BLACK) vs P2 (WHITE)");
     private Player P1 = new Player("P1", Piece_Color.BLACK);
     private Player P2 = new Player("P2", Piece_Color.WHITE);
     private GUI_settings changeDialog = new GUI_settings(this,"Change Settings");
 
     public WelcomeFrame() throws IOException {
+
+        setTitle("Brique");
         setResizable(false);
         setLayout(new BorderLayout());
         JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File("bg.jpg"))));
@@ -33,33 +34,29 @@ public class WelcomeFrame extends JFrame implements ActionListener {
         basePanel.setOpaque(false);
         basePanel.setLayout(new GridLayout(5, 1, 5, 15));
 
-        startGame = new JButton("Start Game");
         startGame.setFont(new Font("Arial", Font.PLAIN, 20));
         startGame.setForeground(Color.GREEN);
         startGame.setBorderPainted(false);
         startGame.setFocusPainted(false);
         startGame.setContentAreaFilled(false);
-        changeSettings = new JButton("Change Settings");
         changeSettings.setFont(new Font("Arial", Font.PLAIN, 20));
         changeSettings.setForeground(Color.CYAN);
         changeSettings.setBorderPainted(false);
         changeSettings.setFocusPainted(false);
         changeSettings.setContentAreaFilled(false);
-        welcomeMessage = new JLabel("Welcome To Brique Game :) ");
         welcomeMessage.setFont(new Font("Serif", Font.ITALIC, 24));
         welcomeMessage.setForeground(Color.WHITE);
-        defaultSettingsMessage = new JLabel("Default Settings : P1 (BLACK) vs P2 (WHITE)");
         defaultSettingsMessage.setFont(new Font("Serif", Font.ITALIC, 15));
         defaultSettingsMessage.setForeground(Color.lightGray);
         startGame.addActionListener(this);
         changeSettings.addActionListener(this);
+
         basePanel.add(welcomeMessage);
         basePanel.add(defaultSettingsMessage);
         basePanel.add(changeSettings);
         basePanel.add(startGame);
         background.add(basePanel);
 
-        setTitle("Brique");
         pack();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
