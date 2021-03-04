@@ -3,8 +3,8 @@ package Game;
 public class Position {
     private int row_idx;
     private int col_idx;
-    private Piece_Color pColor = Piece_Color.BLANK;
     private Pos_Color posColor;
+    private Piece_Color pColor = Piece_Color.BLANK;
 
     public Position(int row_idx, int col_idx, Pos_Color posColor){
         this.row_idx = row_idx;

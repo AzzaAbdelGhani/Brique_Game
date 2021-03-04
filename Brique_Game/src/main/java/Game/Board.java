@@ -13,11 +13,11 @@ public class Board {
         }
     }
 
-    public void reset(){ initializeBoard(); }
+    //public void reset(){ initializeBoard(); }
 
     public int getSize() { return size; }
 
-    public Position getGrid(int r, int c) {return this.grid[r][c];}
+    public Position getPos(int r, int c) {return this.grid[r][c];}
 
     public void fillPos(int i, int j, Piece_Color pColor){
         this.grid[i][j].setPieceColor(pColor);
@@ -33,15 +33,4 @@ public class Board {
         if (i < 0 || j < 0 || i >= this.size || j >= this.size) { return Boolean.FALSE; }
         return Boolean.TRUE;
     }
-
-    public void printBoard(){
-        for(int i = size-1; i >=0; i--){
-            for(int j = 0; j < size; j++){
-                Piece_Color color = getPosFill(i,j);
-                System.out.print(color.getString() + "\t");
-            }
-            System.out.println(" ");
-        }
-    }
-
 }
