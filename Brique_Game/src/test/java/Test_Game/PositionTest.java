@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PositionTest {
 
-    private Position po = new Position(0,0, Pos_Color.LIGHT);
+    private Position po = new Position(0,0);
 
     @Test
     public void checkRowIdColId(){

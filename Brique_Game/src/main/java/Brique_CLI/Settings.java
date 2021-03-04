@@ -1,6 +1,5 @@
 package Brique_CLI;
 import Game.*;
-import com.sun.source.tree.WhileLoopTree;
 
 import java.util.Scanner;
 
@@ -29,16 +28,16 @@ public class Settings {
         String name2 = scanner.next();
 
         p1.setName(name1);
-        p1.setPieceColor(color1);
+        p1.setColor(color1);
         p2.setName(name2);
-        p2.setPieceColor(color2);
+        p2.setColor(color2);
     }
 
     public void applyPieRule(Player p1, Player p2)
     {
         Piece_Color c = p1.getColor();
-        p1.setPieceColor(p2.getColor());
-        p2.setPieceColor(c);
+        p1.setColor(p2.getColor());
+        p2.setColor(c);
 
         Graph g = p1.getGraph();
         p1.setGraph(p2.getGraph());

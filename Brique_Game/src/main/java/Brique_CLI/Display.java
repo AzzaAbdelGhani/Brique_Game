@@ -16,9 +16,9 @@ public class Display {
             if (i < 9) System.out.print(" ");
             System.out.print(i + 1 + " ");
             for (int j = 0; j < size; j = j + 1) {
-                if (board.getGrid(i,j).getPieceColor() == Piece_Color.BLACK) {
+                if (board.getPos(i,j).getPieceColor() == Piece_Color.BLACK) {
                     System.out.print("|" + "B");
-                } else if (board.getGrid(i,j).getPieceColor() == Piece_Color.WHITE) {
+                } else if (board.getPos(i,j).getPieceColor() == Piece_Color.WHITE) {
                     System.out.print("|" + "W");
                 } else if ((i + j) % 2 == 0) {
                     System.out.print("| ");

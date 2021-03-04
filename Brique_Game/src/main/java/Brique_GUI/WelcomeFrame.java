@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class WelcomeFrame extends JFrame implements ActionListener {
 
@@ -26,6 +27,8 @@ public class WelcomeFrame extends JFrame implements ActionListener {
         setTitle("Brique");
         setResizable(false);
         setLayout(new BorderLayout());
+        URL url = getClass().getResource("");
+        System.out.println(url.toString());
         JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File("bg.jpg"))));
         background.setLayout(new FlowLayout(FlowLayout.CENTER, 1,180));
         add(background,BorderLayout.CENTER);

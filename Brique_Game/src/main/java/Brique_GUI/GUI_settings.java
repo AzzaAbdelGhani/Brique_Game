@@ -51,8 +51,8 @@ public class GUI_settings extends JDialog {
         int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to apply Pie Rule ?", "choose", JOptionPane.YES_NO_OPTION);
         if (dialogResult == JOptionPane.YES_OPTION) {
             Piece_Color c = p1.getColor();
-            p1.setPieceColor(p2.getColor());
-            p2.setPieceColor(c);
+            p1.setColor(p2.getColor());
+            p2.setColor(c);
 
             Graph g = p1.getGraph();
             p1.setGraph(p2.getGraph());
