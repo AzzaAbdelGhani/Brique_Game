@@ -29,11 +29,23 @@ public class WelcomeFrame extends JFrame implements ActionListener {
         JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File("bg.jpg"))));
         background.setLayout(new FlowLayout(FlowLayout.CENTER, 1,180));
         add(background,BorderLayout.CENTER);
-
         JPanel basePanel = new JPanel();
         basePanel.setOpaque(false);
         basePanel.setLayout(new GridLayout(5, 1, 5, 15));
+        designButtonsAndLabels();
+        basePanel.add(welcomeMessage);
+        basePanel.add(defaultSettingsMessage);
+        basePanel.add(changeSettings);
+        basePanel.add(startGame);
+        background.add(basePanel);
+        pack();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+    }
+
+    private void designButtonsAndLabels()
+    {
         startGame.setFont(new Font("Arial", Font.PLAIN, 20));
         startGame.setForeground(Color.GREEN);
         startGame.setBorderPainted(false);
@@ -50,17 +62,6 @@ public class WelcomeFrame extends JFrame implements ActionListener {
         defaultSettingsMessage.setForeground(Color.lightGray);
         startGame.addActionListener(this);
         changeSettings.addActionListener(this);
-
-        basePanel.add(welcomeMessage);
-        basePanel.add(defaultSettingsMessage);
-        basePanel.add(changeSettings);
-        basePanel.add(startGame);
-        background.add(basePanel);
-
-        pack();
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-
     }
     public void actionPerformed(ActionEvent e)
     {

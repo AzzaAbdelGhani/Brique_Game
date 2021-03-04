@@ -8,20 +8,18 @@ import java.awt.event.MouseListener;
 
 public class PositionPanel extends  JPanel {
 
-    private JPanel pos;
     private int row;
     private int col;
     private Piece_Color pColor = Piece_Color.BLANK;
-    private static int panelResolution = 48;
     private Pos_Color pos_color = Pos_Color.LIGHT;
+    private static int panelResolution = 48;
 
     public PositionPanel(int row, int col)
     {
         this.row = row;
         this.col = col;
-        this.pos = new JPanel();
-        this.pos.setSize(new Dimension(panelResolution, panelResolution));
-        this.pos.setVisible(true);
+        this.setSize(new Dimension(panelResolution, panelResolution));
+        this.setVisible(true);
     }
 
     @Override
@@ -51,11 +49,12 @@ public class PositionPanel extends  JPanel {
         g.drawOval(i,j,panelResolution/2,panelResolution/2);
     }
 
-    public Piece_Color getPiece() { return this.pColor; }
     public void setPiece(Piece_Color pColor) {
         this.pColor = pColor;
         repaint();
     }
+
+    public Piece_Color getPiece() { return this.pColor; }
     public Pos_Color getColor() { return this.pos_color; }
     public int getRow() { return this.row;}
     public int getCol() { return this.col;}
