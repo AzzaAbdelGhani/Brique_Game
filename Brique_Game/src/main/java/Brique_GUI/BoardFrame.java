@@ -10,9 +10,7 @@ import java.awt.event.MouseListener;
 public class BoardFrame extends JFrame implements MouseListener {
 
     private final Player P1,P2;
-    private static int boardResolution = 720;
-    private static final int boardSize = 15;
-    private PositionPanel[][] grid = new PositionPanel[boardSize][boardSize];
+    private PositionPanel[][] grid = new PositionPanel[GUI_settings.boardSize][GUI_settings.boardSize];
     private Game game = new Game();
     private int move_counter = 0;
     private JLabel msg;
@@ -29,23 +27,23 @@ public class BoardFrame extends JFrame implements MouseListener {
         this.setSize(730,740);
         msg = new JLabel(P1.getName() + "'s turn");
         this.add(msg, BorderLayout.NORTH);
-        board = new JPanel(new GridLayout(boardSize, boardSize, 0, 0));
+        board = new JPanel(new GridLayout(GUI_settings.boardSize, GUI_settings.boardSize, 0, 0));
         board.setBorder(BorderFactory.createMatteBorder(5,0,5,0,Color.BLACK));
         board.setBackground(Color.WHITE);
-        board.setSize(new Dimension(boardResolution,boardResolution));
+        board.setSize(new Dimension(GUI_settings.boardResolution,GUI_settings.boardResolution));
         this.setResizable(false);
         this.setLocationRelativeTo(frame);
 
-        for (int r = 0; r < boardSize ; r++)
+        for (int r = 0; r < GUI_settings.boardSize ; r++)
         {
-            for (int c = 0; c < boardSize; c++)
+            for (int c = 0; c < GUI_settings.boardSize; c++)
             {
                 this.grid[r][c] = new PositionPanel(r, c);
                 this.grid[r][c].addMouseListener(this);
             }
         }
 
-        for (int r = boardSize-1; r >= 0; r--) { for(int c = 0; c < boardSize; c++){ board.add(this.grid[r][c]); } }
+        for (int r = GUI_settings.boardSize-1; r >= 0; r--) { for(int c = 0; c < GUI_settings.boardSize; c++){ board.add(this.grid[r][c]); } }
 
         this.add(board, BorderLayout.CENTER);
         this.setVisible(true);
@@ -131,7 +129,7 @@ public class BoardFrame extends JFrame implements MouseListener {
     public void GUI_escorts(int i, int j){
         Piece_Color current = this.grid[i][j].getPiece();
         Pos_Color color = this.grid[i][j].getColor();
-        if ( i != boardSize-1 && j != boardSize-1 ) {
+        if ( i != GUI_settings.boardSize-1 && j != GUI_settings.boardSize-1 ) {
             if (current == this.grid[i+1][j+1].getPiece() && color == Pos_Color.LIGHT) { this.grid[i][j+1].setPiece(current); }
             if (current == this.grid[i+1][j+1].getPiece() && color == Pos_Color.DARK) { this.grid[i+1][j].setPiece(current); }
         }
@@ -139,6 +137,6 @@ public class BoardFrame extends JFrame implements MouseListener {
             if (current == this.grid[i-1][j-1].getPiece() && color == Pos_Color.LIGHT) { this.grid[i-1][j].setPiece(current); }
             if (current == this.grid[i-1][j-1].getPiece() && color == Pos_Color.DARK){ this.grid[i][j-1].setPiece(current); }
         }
-        if (i == boardSize-1 && color == Pos_Color.DARK && j != boardSize-1) { this.grid[i][j+1].setPiece(current); }
+        if (i == GUI_settings.boardSize-1 && color == Pos_Color.DARK && j != GUI_settings.boardSize-1) { this.grid[i][j+1].setPiece(current); }
     }
 }

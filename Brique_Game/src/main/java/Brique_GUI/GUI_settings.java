@@ -12,6 +12,8 @@ public class GUI_settings extends JDialog {
     private JTextField P1Name = new JTextField(15);
     private JTextField P2Name = new JTextField(15);
     private JButton changeButton = new JButton("Change");
+    public static int boardResolution = 720;
+    public static final int boardSize = 15;
 
     public GUI_settings (JFrame frame, String title)
     {
