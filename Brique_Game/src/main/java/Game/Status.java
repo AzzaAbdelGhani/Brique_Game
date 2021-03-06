@@ -6,7 +6,8 @@ public enum Status {
     P1_WINS ("P1_WINS"),
     P2_WINS ("P2_WINS");
 
-    private String gameStatus;
-    Status(String s){ gameStatus = s;}
-    public String getString() {return gameStatus;}
+    public final String gameStatus;
+
+    public String getString() {return this.gameStatus;}
+    Status(String s){ this.gameStatus = s;}
 }

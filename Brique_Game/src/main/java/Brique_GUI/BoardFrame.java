@@ -10,11 +10,13 @@ import java.awt.event.MouseListener;
 public class BoardFrame extends JFrame implements MouseListener {
 
     private final Player P1,P2;
-    private PositionPanel[][] grid = new PositionPanel[GUI_settings.boardSize][GUI_settings.boardSize];
     private Game game = new Game();
     private int move_counter = 0;
     private JLabel msg;
     private JPanel board;
+    private static int boardResolution = 720;
+    private static final int boardSize = 15;
+    private PositionPanel[][] grid = new PositionPanel[boardSize][boardSize];
 
     public BoardFrame(JFrame frame, Player P1, Player P2)
     {
@@ -27,23 +29,23 @@ public class BoardFrame extends JFrame implements MouseListener {
         this.setSize(730,740);
         msg = new JLabel(P1.getName() + "'s turn");
         this.add(msg, BorderLayout.NORTH);
-        board = new JPanel(new GridLayout(GUI_settings.boardSize, GUI_settings.boardSize, 0, 0));
+        board = new JPanel(new GridLayout(boardSize, boardSize, 0, 0));
         board.setBorder(BorderFactory.createMatteBorder(5,0,5,0,Color.BLACK));
         board.setBackground(Color.WHITE);
-        board.setSize(new Dimension(GUI_settings.boardResolution,GUI_settings.boardResolution));
+        board.setSize(new Dimension(boardResolution, boardResolution));
         this.setResizable(false);
         this.setLocationRelativeTo(frame);
 
-        for (int r = 0; r < GUI_settings.boardSize ; r++)
+        for (int r = 0; r < boardSize ; r++)
         {
-            for (int c = 0; c < GUI_settings.boardSize; c++)
+            for (int c = 0; c < boardSize; c++)
             {
                 this.grid[r][c] = new PositionPanel(r, c);
                 this.grid[r][c].addMouseListener(this);
             }
         }
 
-        for (int r = GUI_settings.boardSize-1; r >= 0; r--) { for(int c = 0; c < GUI_settings.boardSize; c++){ board.add(this.grid[r][c]); } }
+        for (int r = boardSize-1; r >= 0; r--) { for(int c = 0; c < boardSize; c++){ board.add(this.grid[r][c]); } }
 
         this.add(board, BorderLayout.CENTER);
         this.setVisible(true);
@@ -61,12 +63,12 @@ public class BoardFrame extends JFrame implements MouseListener {
         move.Move_GUI(game.getBoard(), game.getActivePlayer(), game.getOtherPlayer(), x, y);
         if(move.makeMove()) {
             move_counter++;
-            temp.setPiece(game.getOtherPlayer().getColor());
+            temp.setPieceColor(game.getOtherPlayer().getColor());
             GUI_escorts(x,y);
             msg.setText(game.getActivePlayer().getName() + "'s turn");
         }
         if(checkPie) {
-            if (GUI_settings.applyPieRule(P1, P2))
+            if (GUI_Settings.applyPieRule(P1, P2))
             {
                 game.getActivePlayer().setActive(false);
                 game.getOtherPlayer().setActive(true);
@@ -127,16 +129,16 @@ public class BoardFrame extends JFrame implements MouseListener {
     }
 
     public void GUI_escorts(int i, int j){
-        Piece_Color current = this.grid[i][j].getPiece();
-        Pos_Color color = this.grid[i][j].getColor();
-        if ( i != GUI_settings.boardSize-1 && j != GUI_settings.boardSize-1 ) {
-            if (current == this.grid[i+1][j+1].getPiece() && color == Pos_Color.LIGHT) { this.grid[i][j+1].setPiece(current); }
-            if (current == this.grid[i+1][j+1].getPiece() && color == Pos_Color.DARK) { this.grid[i+1][j].setPiece(current); }
+        Piece_Color current = this.grid[i][j].getPieceColor();
+        Pos_Color color = this.grid[i][j].getPositionColor();
+        if ( i != boardSize-1 && j != boardSize-1 ) {
+            if (current == this.grid[i+1][j+1].getPieceColor() && color == Pos_Color.LIGHT) { this.grid[i][j+1].setPieceColor(current); }
+            if (current == this.grid[i+1][j+1].getPieceColor() && color == Pos_Color.DARK) { this.grid[i+1][j].setPieceColor(current); }
         }
         if ( i != 0 && j != 0 ){
-            if (current == this.grid[i-1][j-1].getPiece() && color == Pos_Color.LIGHT) { this.grid[i-1][j].setPiece(current); }
-            if (current == this.grid[i-1][j-1].getPiece() && color == Pos_Color.DARK){ this.grid[i][j-1].setPiece(current); }
+            if (current == this.grid[i-1][j-1].getPieceColor() && color == Pos_Color.LIGHT) { this.grid[i-1][j].setPieceColor(current); }
+            if (current == this.grid[i-1][j-1].getPieceColor() && color == Pos_Color.DARK){ this.grid[i][j-1].setPieceColor(current); }
         }
-        if (i == GUI_settings.boardSize-1 && color == Pos_Color.DARK && j != GUI_settings.boardSize-1) { this.grid[i][j+1].setPiece(current); }
+        if (i == boardSize-1 && color == Pos_Color.DARK && j != boardSize-1) { this.grid[i][j+1].setPieceColor(current); }
     }
 }

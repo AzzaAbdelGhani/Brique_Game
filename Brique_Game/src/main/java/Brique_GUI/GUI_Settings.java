@@ -8,14 +8,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class GUI_settings extends JDialog {
+public class GUI_Settings extends JDialog {
     private JTextField P1Name = new JTextField(15);
     private JTextField P2Name = new JTextField(15);
     private JButton changeButton = new JButton("Change");
-    public static int boardResolution = 720;
-    public static final int boardSize = 15;
 
-    public GUI_settings (JFrame frame, String title)
+    public GUI_Settings(JFrame frame, String title)
     {
         super(frame, title, false);
         JPanel panel = new JPanel(new GridLayout(5,2,5,5));

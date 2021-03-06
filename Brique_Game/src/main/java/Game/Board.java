@@ -21,7 +21,7 @@ public class Board {
     public void fillPos(int i, int j, Piece_Color pColor){ this.grid[i][j].setPieceColor(pColor); }
 
     public boolean isValidPos(int i, int j) {
-        List<Integer> range = IntStream.rangeClosed(0,size).boxed().collect(Collectors.toList());
+        List<Integer> range = IntStream.rangeClosed(0,size-1).boxed().collect(Collectors.toList());
         if(range.contains(i) && range.contains(j)) { return Boolean.TRUE; }
         return Boolean.FALSE;
     }
