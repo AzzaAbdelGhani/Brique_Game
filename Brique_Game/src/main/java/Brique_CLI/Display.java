@@ -33,6 +33,15 @@ public class Display {
         return game;
     }
 
+    public static Coordinates userInput(){
+        System.out.print("Please enter the coordinates:\t");
+        Scanner scanner = new Scanner(System.in);
+        char a = scanner.next().charAt(0);
+        int y = (int) a - 97;
+        int x = scanner.nextInt() - 1;
+        return new Coordinates(x,y);
+    }
+
     public static void printBoard(Board board){
         System.out.print("   ");
         for (int i = size-1 ; i >= 0; i--) {
@@ -43,9 +52,10 @@ public class Display {
             if (i < 9) System.out.print(" ");
             System.out.print(i + 1 + " ");
             for (int j = 0; j < size; j = j + 1) {
-                if (board.getPos(i,j).getPieceColor() == Piece_Color.BLACK) {
+                Coordinates coordinates = new Coordinates(i,j);
+                if (board.getPos(coordinates).getPieceColor() == Piece_Color.BLACK) {
                     System.out.print("|" + "B");
-                } else if (board.getPos(i,j).getPieceColor() == Piece_Color.WHITE) {
+                } else if (board.getPos(coordinates).getPieceColor() == Piece_Color.WHITE) {
                     System.out.print("|" + "W");
                 } else if ((i + j) % 2 == 0) {
                     System.out.print("| ");
