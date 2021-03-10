@@ -43,5 +43,7 @@ public class Settings {
         p1.setGraph(p2.getGraph());
         p2.setGraph(g);
 
+        p1.setActive(false);
+        p2.setActive(true);
     }
 }

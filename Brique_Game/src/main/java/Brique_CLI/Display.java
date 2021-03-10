@@ -33,7 +33,20 @@ public class Display {
         return game;
     }
 
-    public static Coordinates userInput(){
+    public static boolean userInputPieRule(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Would you like to use Pie Rule ? yes/no");
+        String input2 = scanner.next();
+        input2 = input2.toLowerCase();
+        while (!input2.equals("yes") && !input2.equals("no") && !input2.equals("n") && !input2.equals("y")) {
+            System.out.println("Please enter yes or no : ");
+            input2 = scanner.next();
+        }
+        if (input2 == "yes" || input2 == "y") return true;
+
+        return false;
+    }
+    public static Coordinates userInputCoordinates(){
         System.out.print("Please enter the coordinates:\t");
         Scanner scanner = new Scanner(System.in);
         char a = scanner.next().charAt(0);
@@ -42,6 +55,10 @@ public class Display {
         return new Coordinates(x,y);
     }
 
+    public static void victoryDisplay(Player P){
+        System.out.println("GAME OVER");
+        System.out.println(P.getName() + "wins!" + "Congrats");
+    }
     public static void printBoard(Board board){
         System.out.print("   ");
         for (int i = size-1 ; i >= 0; i--) {
