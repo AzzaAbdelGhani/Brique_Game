@@ -1,10 +1,8 @@
 package Test_Game;
 
-import Game.Piece_Color;
-import Game.Move;
-import Game.Player;
-import Game.Board;
+import Game.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.common.processor.core.ColumnOrderDependent;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -14,59 +12,44 @@ public class MoveTest {
     Player P1 = new Player("p1", Piece_Color.BLACK);
     Player P2 = new Player("p2", Piece_Color.WHITE);
     Board board = new Board();
-    Move move = new Move();
+    Coordinates coordinates = new Coordinates(0,0);
+    Move move = new Move(board,P1,P2,coordinates);
 
     @Test
-    public void initiateMove(){
+    public void makeaMove(){
         board.initializeBoard();
-        InputStream backup = System.in;
-        System.setIn(new ByteArrayInputStream("b 4".getBytes()));
-        move.Move(board, P1, P2);
-        assertEquals(move.getX()+1, 4);
-        assertEquals(move.getY()+1, 2);
-        System.setIn(backup);
+        P1.setActive(true);
+        move.makeMove();
+        assertFalse(P1.IsActive());
+        assertTrue(P2.IsActive());
+        assertEquals(board.getPos(coordinates).getPieceColor(),Piece_Color.BLACK);
+        Coordinates coordinates1 = new Coordinates(-1,2);
+        Move invalid_move = new Move(board, P2, P1, coordinates1);
+        assertFalse(invalid_move.makeMove());
     }
 
     @Test
-    public void areEscortsFilled(){
+    public void escortFilling(){
         board.initializeBoard();
-        InputStream backup = System.in;
-        System.setIn(new ByteArrayInputStream("b 4".getBytes()));
-        move.Move(board, P1, P2);
+        move.makeMove(); // Player 1 made a move filling the position 0,0
+        Coordinates co1 = new Coordinates(1,1);
+        P1.setActive(true); //set Player 1 active again
+        P2.setActive(false);
+        Move move2 = new Move(board, P1, P2, co1);
+        move2.makeMove(); //Player 1 again makes a move filling the diagonal up position of 1,1
+        //Now the escort has to be filled. The positions filled are light colors
+        assertEquals(board.getPos(co1.getLeft()).getPieceColor(), P1.getColor());
 
-        //Tests for Light Interior Positions
-        move.fillBoardandUpdateGraph(5,5, Piece_Color.BLACK);
-        move.fillBoardandUpdateGraph(4,4,Piece_Color.BLACK);
-        move.fillBoardandUpdateGraph(6,6,Piece_Color.BLACK);
-        move.fillEscorts(5,5);
-        assertEquals(board.getPosFill(5,5), board.getPosFill(4, 5));
-        assertEquals(board.getPosFill(5,5), board.getPosFill(5, 6));
-
-        //Test for Dark Interior Positions
-        move.fillBoardandUpdateGraph(1,2,Piece_Color.WHITE);
-        move.fillBoardandUpdateGraph(2,3,Piece_Color.WHITE);
-        move.fillBoardandUpdateGraph(3,4,Piece_Color.WHITE);
-        move.fillEscorts(2,3);
-        assertEquals(board.getPosFill(2,3), board.getPosFill(3,3));
-        assertEquals(board.getPosFill(2,3),board.getPosFill(2,2));
-    }
-
-    @Test
-    public void makingaValidMove(){
         board.initializeBoard();
-        InputStream backup = System.in;
-        System.setIn(new ByteArrayInputStream("t 4".getBytes()));
-        move.Move(board, P1, P2);
-        assertFalse(move.makeMove());
-
-        System.setIn(new ByteArrayInputStream("a 16".getBytes()));
-        move.Move(board, P1, P2);
-        assertFalse(move.makeMove());
-
-        System.setIn(new ByteArrayInputStream("h 4".getBytes()));
-        move.Move(board, P1, P2);
-        assertTrue(move.makeMove());
-        System.setIn(backup);
+        Coordinates co2 = new Coordinates(3,4);
+        Move move3 = new Move(board, P2, P1, co2);
+        move3.makeMove(); // P2 fills the position 3,4 which is dark
+        P2.setActive(true); //set P2 again active
+        P1.setActive(false);
+        Coordinates co3 = new Coordinates(2,3);
+        Move move4 = new Move(board, P2, P1, co3);
+        move4.makeMove(); //P2 again makes a move filling 2,3 which is diagonal down for 3,4
+        assertEquals(board.getPos(co3.getRight()).getPieceColor(), P2.getColor());
     }
 
 }
