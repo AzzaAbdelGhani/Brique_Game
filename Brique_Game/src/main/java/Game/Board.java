@@ -12,17 +12,17 @@ public class Board {
 
     public int getSize() { return size; }
 
-    public Position getPos(int r, int c) {return this.grid[r][c];}
+    public Position getPos(Coordinates coordinates) { return this.grid[coordinates.getX()][coordinates.getY()]; }
 
-    public Piece_Color getPosFill(int i, int j){ return this.grid[i][j].getPieceColor(); }
+    public boolean isValidPos(Coordinates coordinates) {
+        List<Integer> range = IntStream.range(0,size).boxed().collect(Collectors.toList());
+        if(range.contains(coordinates.getX()) && range.contains(coordinates.getY())) { return Boolean.TRUE; }
+        return Boolean.FALSE;
+    }
 
-    public Pos_Color getPosColor(int i, int j) { return  this.grid[i][j].getPosColor(); }
-
-    public void fillPos(int i, int j, Piece_Color pColor){ this.grid[i][j].setPieceColor(pColor); }
-
-    public boolean isValidPos(int i, int j) {
-        List<Integer> range = IntStream.rangeClosed(0,size-1).boxed().collect(Collectors.toList());
-        if(range.contains(i) && range.contains(j)) { return Boolean.TRUE; }
+    public boolean isBorderPos(Coordinates coordinates){
+        if(coordinates.getX() == size-1 || coordinates.getY() == size-1) return Boolean.TRUE;
+        if(coordinates.getX() == 0 || coordinates.getY() == 0) return Boolean.TRUE;
         return Boolean.FALSE;
     }
 }

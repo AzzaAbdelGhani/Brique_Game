@@ -1,5 +1,6 @@
 package Test_Game;
 
+import Game.Coordinates;
 import Game.Piece_Color;
 import Game.Pos_Color;
 import Game.Board;
@@ -14,22 +15,22 @@ public class BoardTest {
     @Test
     public void fillBoard(){
         board.initializeBoard();
-        assertEquals(board.getPosFill(0,0), Piece_Color.BLANK);
-        board.fillPos(1,2,Piece_Color.BLACK);
-        assertEquals(board.getPosFill(1,2), Piece_Color.BLACK);
+        assertEquals(board.getPos(new Coordinates(0,0)).getPieceColor(), Piece_Color.BLANK);
+        board.getPos(new Coordinates(1,2)).setPieceColor(Piece_Color.BLACK);
+        assertEquals(board.getPos(new Coordinates(1,2)).getPieceColor(), Piece_Color.BLACK);
     }
 
     @Test
     public void isValidPosition(){
         int size = board.getSize();
-        assertFalse(board.isValidPos(0, size));
-        assertFalse(board.isValidPos(-1,size-1));
-        assertFalse(board.isValidPos(size-1,-1));
-        assertFalse(board.isValidPos(size, size));
+        assertFalse(board.isValidPos(new Coordinates(0,size)));
+        assertFalse(board.isValidPos(new Coordinates(-1,size-1)));
+        assertFalse(board.isValidPos(new Coordinates(size-1,-1)));
+        assertFalse(board.isValidPos(new Coordinates(size, size)));
 
-        assertTrue(board.isValidPos(0,0));
-        assertTrue(board.isValidPos(0,size-1));
-        assertTrue(board.isValidPos(size-1,0));
-        assertTrue(board.isValidPos(size-1,size-1));
+        assertTrue(board.isValidPos(new Coordinates(0,0)));
+        assertTrue(board.isValidPos(new Coordinates(0,size-1)));
+        assertTrue(board.isValidPos(new Coordinates(size-1,0)));
+        assertTrue(board.isValidPos(new Coordinates(size-1,size-1)));
     }
 }
