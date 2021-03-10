@@ -54,13 +54,13 @@ public class BoardFrame extends JFrame implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
 
-        Move move = new Move();
         Boolean checkPie = (move_counter == 0);
         Object source = e.getSource();
         PositionPanel temp = (PositionPanel) source;
         int x = temp.getRow();
         int y = temp.getCol();
-        move.Move_GUI(game.getBoard(), game.getActivePlayer(), game.getOtherPlayer(), x, y);
+        Coordinates coordinates = new Coordinates(x,y);
+        Move move = new Move(game.getBoard(), game.getActivePlayer(), game.getOtherPlayer(),coordinates);
         if(move.makeMove()) {
             move_counter++;
             temp.setPieceColor(game.getOtherPlayer().getColor());
@@ -139,6 +139,5 @@ public class BoardFrame extends JFrame implements MouseListener {
             if (current == this.grid[i-1][j-1].getPieceColor() && color == Pos_Color.LIGHT) { this.grid[i-1][j].setPieceColor(current); }
             if (current == this.grid[i-1][j-1].getPieceColor() && color == Pos_Color.DARK){ this.grid[i][j-1].setPieceColor(current); }
         }
-        if (i == boardSize-1 && color == Pos_Color.DARK && j != boardSize-1) { this.grid[i][j+1].setPieceColor(current); }
     }
 }

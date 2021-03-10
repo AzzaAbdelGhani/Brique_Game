@@ -29,7 +29,7 @@ public class WelcomeFrame extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
         URL url = getClass().getResource("");
         System.out.println(url.toString());
-        JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File("bg.jpg"))));
+        JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File("Brique_Game\\bg.jpg"))));
         background.setLayout(new FlowLayout(FlowLayout.CENTER, 1,180));
         add(background,BorderLayout.CENTER);
         JPanel basePanel = new JPanel();

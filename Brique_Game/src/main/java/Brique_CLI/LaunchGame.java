@@ -35,9 +35,12 @@ public class LaunchGame {
                     continue;
                 }
             }
-            Move move = new Move();
-            move.Move(game.getBoard(), game.getActivePlayer(), game.getOtherPlayer());
-            while(!move.makeMove()){ move.Move(game.getBoard(), game.getActivePlayer(), game.getOtherPlayer()); }
+            Coordinates coordinates = Display.userInput();
+            Move move = new Move(game.getBoard(), game.getActivePlayer(), game.getOtherPlayer(), coordinates);
+            while(!move.makeMove()){
+                coordinates = Display.userInput();
+                move = new Move(game.getBoard(), game.getActivePlayer(), game.getOtherPlayer(),coordinates);
+            }
             move_counter++;
 
             if(move_counter > 28){

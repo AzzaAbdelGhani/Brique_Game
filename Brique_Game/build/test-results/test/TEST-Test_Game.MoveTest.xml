@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test_Game.MoveTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-02-15T12:06:18" hostname="LAPTOP-OTAF57Q4" time="0.03">
+<testsuite name="Test_Game.MoveTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-03-10T12:49:16" hostname="LAPTOP-OTAF57Q4" time="0.005">
   <properties/>
-  <testcase name="initiateMove()" classname="Test_Game.MoveTest" time="0.018"/>
-  <testcase name="areEscortsFilled()" classname="Test_Game.MoveTest" time="0.003"/>
-  <testcase name="makingaValidMove()" classname="Test_Game.MoveTest" time="0.005"/>
-  <system-out><![CDATA[Enter the coordinates:Enter the coordinates:Enter the coordinates:Invalid Coordinates, please enter again: 
-Enter the coordinates:Invalid Coordinates, please enter again: 
-Enter the coordinates:]]></system-out>
+  <testcase name="makeaMove()" classname="Test_Game.MoveTest" time="0.003"/>
+  <testcase name="escortFilling()" classname="Test_Game.MoveTest" time="0.001"/>
+  <system-out><![CDATA[Invalid Coordinates, please enter again: 
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
