@@ -7,7 +7,7 @@ public class Graph {
 
     public final List<List<Integer>> Adjacency_List;
     private Piece_Color pieceColor;
-    private Board board = new Board();
+    private Board board;
 
     public Graph(Piece_Color pieceColor)
     {
@@ -20,12 +20,12 @@ public class Graph {
         }
     }
 
-    public void updateBoard(Board board, int row, int col){
+    public void updateGraph(Board board, Coordinates coordinates){
         this.board = board;
-        add_node(row, col);
+        add_node(coordinates);
     }
 
-    private int get_Index(int row, int col) {return row*15 + col ;}
+    private int get_Index(Coordinates coordinates) {return coordinates.getX()*15 + coordinates.getY() ;}
 
     public void setEdge(int src , int des)
     {
@@ -34,68 +34,53 @@ public class Graph {
         Adjacency_List.get(src).add(des);
     }
 
-    private void check_neighbours(int row, int col)
+    private boolean isNeighbourFilled(Coordinates coordinates){
+        if(board.isValidPos(coordinates)){
+            if(board.getPos(coordinates).getPieceColor() == pieceColor) return Boolean.TRUE;
+        }
+        return Boolean.FALSE;
+    }
+
+    private void check_neighbours(Coordinates coordinates)
     {
-        if(this.board.isValidPos(row-1, col))
-        {
-            if ( this.pieceColor == this.board.getPosFill(row-1,col))
-                setEdge(get_Index(row,col), get_Index(row-1,col));
-        }
-        if(this.board.isValidPos(row+1, col))
-        {
-            if ( this.pieceColor == this.board.getPosFill(row+1,col))
-                setEdge(get_Index(row,col), get_Index(row+1,col));
-        }
-        if(this.board.isValidPos(row, col-1))
-        {
-            if ( this.pieceColor == this.board.getPosFill(row,col-1))
-                setEdge(get_Index(row,col), get_Index(row,col-1));
-        }
-        if(this.board.isValidPos(row, col+1))
-        {
-            if ( this.pieceColor == this.board.getPosFill(row,col+1))
-                setEdge(get_Index(row,col), get_Index(row,col+1));
+        ArrayList<Coordinates> neighbours = new ArrayList<>();
+        neighbours.add(coordinates.getUp());
+        neighbours.add(coordinates.getDown());
+        neighbours.add(coordinates.getLeft());
+        neighbours.add(coordinates.getRight());
+
+        for(Coordinates n:neighbours) {
+            if(isNeighbourFilled(n)) setEdge(get_Index(coordinates),get_Index(n));
         }
     }
 
-    public void add_node(int row, int col)
+    public void add_node(Coordinates coordinates)
     {
-        int idx = get_Index(row, col);
+        int idx = get_Index(coordinates);
         Adjacency_List.get(idx).add(idx);
-        check_neighbours(row, col);
+        check_neighbours(coordinates);
     }
 
     private ArrayList<List<Integer>> getBorders()
     {
         ArrayList<List<Integer>> borders = new ArrayList<List<Integer>>();
-        for (int i = 0; i < 2; i++)
-        {
-            ArrayList<Integer> new_list = new ArrayList<>();
-            borders.add(i,new_list);
-        }
-        if (this.pieceColor == Piece_Color.BLACK)
-        {
-            ArrayList<Integer> up = new ArrayList<Integer>();
-            ArrayList<Integer> down = new ArrayList<Integer>();
+        ArrayList<Integer> b1 = new ArrayList<Integer>();
+        ArrayList<Integer> b2 = new ArrayList<Integer>();
+        if (this.pieceColor == Piece_Color.BLACK){
             for (int i = 0, j = 210; i < 15 && j < 225; i++, j++) {
-                up.add(i);
-                down.add(j);
+                b1.add(i);
+                b2.add(j);
             }
-            borders.add(0,up);
-            borders.add(1,down);
         }
-        else if (this.pieceColor == Piece_Color.WHITE)
-        {
-            ArrayList<Integer> right = new ArrayList<Integer>();
-            ArrayList<Integer> left = new ArrayList<Integer>();
+        if (this.pieceColor == Piece_Color.WHITE){
             for (int i = 0, j = 14; i < 211 && j < 225; i+=15, j+=15) {
-                left.add(i);
-                right.add(j);
+                b1.add(i);
+                b2.add(j);
             }
-            borders.add(0,left);
-            borders.add(1,right);
-        }
 
+        }
+        borders.add(0,b1);
+        borders.add(1,b2);
         return borders;
     }
 
@@ -129,17 +114,4 @@ public class Graph {
         return false;
     }
 
-    public void printGraph()
-    {
-        System.out.println ("Adjacency List for the graph \n");
-        for (List<Integer> l : Adjacency_List)
-        {
-            if(!l.isEmpty()) {
-                for (int i = 0; i < l.size(); i++) {
-                    System.out.print("->" + l.get(i));
-                }
-                System.out.print("\n");
-            }
-        }
-    }
 }
