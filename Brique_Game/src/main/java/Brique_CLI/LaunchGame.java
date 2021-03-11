@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class LaunchGame {
 
-    public static void main(String[] args) {
+    public static void run() {
         Game game = Display.startGame();
         Settings s = new Settings();
         int move_counter = 0;
